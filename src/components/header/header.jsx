@@ -22,7 +22,7 @@ const Header = ({ siteTitle }) => (
     `}
     render={(data) => (
       <Fragment>
-        <nav className="db flex justify-between w-100 pa3 ph5-l">
+        <nav className="db flex justify-between w-100 ph5-l" style={{ marginTop: '3rem' }}>
           <div className="dib w-25 v-mid">
             <Link to="/" className="link dim">
               <picture>

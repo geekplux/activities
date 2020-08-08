@@ -176,7 +176,7 @@ const YearsStat = ({ runs, year, onClick }) => {
   return (
     <div className="fl w-100 w-30-l pb5 pr5-l">
       <section className="pb4" style={{ paddingBottom: '0rem' }}>
-        <p>
+        <p style={{ marginTop: 0 }}>
           展示我自己运动的一些数据。样式和数据处理方式参考 {" "}
           <a className="light-gray b" href="https://yihong.run/running/">
             Yihong's Blog
@@ -225,7 +225,7 @@ const YearStat = ({ runs, year, onClick }) => {
   let heartRateNullCount = 0;
   runs.forEach((run) => {
     sumDistance += run.distance || 0;
-    if (run.average_speed) {
+    if (run.average_speed && run.type === 'Run') {
       pace += run.average_speed;
     } else {
       paceNullCount++;
