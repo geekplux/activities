@@ -5,7 +5,6 @@ import os.path
 import sys
 import argparse
 import time
-
 import httpx
 
 BASE_URL = "https://api.nike.com/sport/v3/me"
