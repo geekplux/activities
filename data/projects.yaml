@@ -1,0 +1,78 @@
+- name: gaycore
+  role: author
+  status: legacy
+  primary: true
+  description: Use terminal to listen gcores 
+  repo: yihong0618/gaycore
+  languages:
+    - Python
+
+- name: vscode-gcores
+  role: author
+  status: legacy
+  primary: true
+  description: Use vscode play with gcores
+  repo: yihong0618/vscode-gcores
+  languages:
+    - TypeScript
+
+- name: leetcode-cli
+  role: contributor
+  status: legacy
+  primary: true
+  description: A productive cli tool to enjoy leetcode! 
+  repo: leetcode-tools/leetcode-cli
+  languages:
+    - JavaScript
+
+- name: vscode-leetcode
+  role: contributor 
+  status: legacy
+  primary: true
+  description: Play leetcode in VScode 
+  repo: LeetCode-OpenSource/vscode-leetcode 
+  languages:
+    - TypeScript
+
+- name: '2020'
+  role: author
+  status: legacy
+  primary: true
+  description: All about my '2020'
+  repo: yihong0618/2020
+  languages:
+    - C
+    - Python
+    - JavaScript
+
+- name: blog
+  role: author
+  primary: false
+  description: This blog 
+  repo: yihong0618/blog
+  languages:
+    - JavaScript
+
+- name: Python365
+  role: author
+  primary: false
+  description: Learn Python  
+  repo: yihong0618/Python365
+  languages:
+    - Python
+
+- name: nrc-exporter
+  role: contributor
+  primary: false
+  description: Get NRC data and to gpx 
+  repo: yasoob/nrc-exporter
+  languages:
+    - Python
+
+- name: activities
+  role: contributor
+  primary: false
+  description: Your self-hosted activities overview
+  repo: flopp/activities
+  languages:
+    - JavaScript

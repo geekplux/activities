@@ -1,0 +1,25 @@
+# https://github.github.com/linguist/
+
+- name: Python
+  colour: "#3572A5"
+
+- name: JavaScript
+  colour: "#f1e05a"
+
+- name: TypeScript
+  colour: "#f1e05a"
+
+- name: Elm
+  colour: "#60B5CC"
+
+- name: C
+  colour: "#555555"
+
+- name: Haskell
+  colour: "#5e5086"
+
+- name: HTML
+  colour: "#e34c26"
+
+- name: CSS
+  colour: "#563d7c"

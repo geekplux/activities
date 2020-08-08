@@ -1,0 +1,67 @@
+name: Nike Sync
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  push:
+    branches:
+      - master
+    paths:
+      - scripts/nike_sync.py
+      - scripts/strava.py
+      - scripts/gen_json.py
+      - requirements.txt
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Configure pip cache
+        uses: actions/cache@v1
+        id: pip-cache
+        with:
+          path: venv
+          key: pip-1-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+        if: steps.pip-cache.outputs.cache-hit != 'true'
+
+      - name: Run sync script
+        run: |
+          source venv/bin/activate
+          python scripts/nike_sync.py ${{ secrets.N_TOKEN }}
+
+      - name: Generate New gpx upload to strava
+        run: |
+          source venv/bin/activate
+          python scripts/strava.py ${{ secrets.S_CLIENT_ID }} ${{ secrets.S_CLIENT_SECRET }} ${{ secrets.S_REFRESH_TOKEN}}
+
+      - name: Generate new data files
+        run: |
+          source venv/bin/activate
+          python scripts/gen_json.py ${{ secrets.S_CLIENT_ID }} ${{ secrets.S_CLIENT_SECRET }} ${{ secrets.S_REFRESH_TOKEN}}
+
+      - name: Push new runs
+        uses: github-actions-x/commit@v2.6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add new runs"
+          files: data/activities/ src/static/ scripts/data.db
+          rebase: 'true'
+          name: yihong0618 
+          email: zouzou0208@gmail.com

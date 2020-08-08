@@ -1,0 +1,70 @@
+@import "../../styles/variables";
+
+@import "~tachyons-sass/tachyons.scss";
+
+.content {
+  margin-top: 30px;
+
+  p {
+    @extend .f5;
+    @extend .pb2;
+  }
+
+  h2 {
+    @extend .mt4;
+    @extend .pt4;
+    @extend .b;
+  }
+
+  h3 {
+    @extend .mt4;
+    @extend .pt4;
+  }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    @extend .w-100;
+    @extend .mw8;
+    @extend .tl;
+    @extend .mv4;
+    @extend .bg-near-white;
+
+    th {
+      @extend .tl;
+      @extend .pa3;
+      @extend .pr3;
+    }
+    td {
+      @extend .pa3;
+    }
+    tr {
+      @extend .bb;
+      @extend .b--black-10;
+    }
+  }
+
+  p > code {
+    // Light
+    @extend .lh-copy;
+    @extend .bg-light-gray;
+    @extend .br2;
+    @extend .pv0;
+    @extend .ph1;
+    @extend .f6;
+  }
+
+  blockquote {
+    @extend .bl;
+    @extend .bw2;
+    @extend .ml0;
+    @extend .pl4;
+    @extend .b--black-20;
+    @extend .i;
+
+    p {
+      @extend .pa0;
+    }
+  }
+}
