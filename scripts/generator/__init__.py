@@ -19,7 +19,7 @@ class Generator:
 
         self.client_id = client_id
         self.client_secret = client_secret
-        self.refresh_token = refresh_token 
+        self.refresh_token = refresh_token
 
 
     def check_access(self) -> None:
@@ -80,22 +80,22 @@ class Generator:
         last_date = None
         for activity in activities:
             # Determine running streak.
-            if activity.type == "Run":
-                date = datetime.datetime.strptime(activity.start_date_local, "%Y-%m-%d %H:%M:%S").date()
-                if last_date is None:
-                    streak = 1
-                elif date == last_date:
-                    pass
-                elif date == last_date + datetime.timedelta(days=1):
-                    streak += 1
-                else:
-                    assert date > last_date
-                    streak = 1
-                activity.streak = streak
-                last_date = date
-                # Determine visited POIs.
-                # Append to result list.
-                # only run to show
-                activity_list.append(activity.to_dict())
+            # if activity.type == "Run":
+            date = datetime.datetime.strptime(activity.start_date_local, "%Y-%m-%d %H:%M:%S").date()
+            if last_date is None:
+                streak = 1
+            elif date == last_date:
+                pass
+            elif date == last_date + datetime.timedelta(days=1):
+                streak += 1
+            else:
+                assert date > last_date
+                streak = 1
+            activity.streak = streak
+            last_date = date
+            # Determine visited POIs.
+            # Append to result list.
+            # only run to show
+            activity_list.append(activity.to_dict())
 
         return athlete_dict, activity_list

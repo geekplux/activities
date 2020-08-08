@@ -14,3 +14,5 @@ db.csv
 danpalmer.sql
 
 .mypy_cache
+
+__pycache__
