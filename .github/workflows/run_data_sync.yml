@@ -10,6 +10,7 @@ on:
       - scripts/nike_sync.py
       - scripts/strava.py
       - scripts/gen_json.py
+      - scripts/data.db
       - requirements.txt
 
 jobs:
