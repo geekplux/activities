@@ -26,44 +26,27 @@ const Header = ({ siteTitle }) => (
           <div className="dib w-25 v-mid">
             <Link to="/" className="link dim">
               <picture>
-                <source
-                  srcSet={data.avatar.edges[0].node.image.srcSet}
-                  type="image/jpeg"
-                />
-                <source
-                  srcSet={data.avatar.edges[0].node.image.srcSetWebp}
-                  type="image/webp"
-                />
                 <img
-                  className="dib w2 h2 br-100"
+                  className="dib w3 h3 br-100"
                   alt={siteTitle}
-                  src={data.avatar.edges[0].node.image.base64}
+                  src={"https://geekpluxblog.oss-cn-hongkong.aliyuncs.com/avatar.jpg?x-oss-process=style/zip"}
                 />
               </picture>
             </Link>
           </div>
           <div className="dib w-75 v-mid tr">
-            <Link
-              to="/"
-              activeClassName="active"
-              className="link dim f6 f5-l dib mr3 mr4-l"
+            <a
+              href="https://geekplux.com/"
+              className="light-gray link dim f6 f5-l mr3 mr4-l"
             >
               Blog
-            </Link>
-            <Link
-              to="/projects"
-              activeClassName="active"
-              className="link dim f6 f5-l dib mr3 mr4-l"
+            </a>
+            <a
+              to="https://geekplux.com/about"
+              className="light-gray link dim f6 f5-l mr3 mr4-l"
             >
-              Projects
-            </Link>
-            <Link
-              to="/running"
-              activeClassName="active"
-              className="link dim f6 f5-l dib mr3 mr4-l"
-            >
-              Running
-            </Link>
+              About
+            </a>
           </div>
         </nav>
       </Fragment>

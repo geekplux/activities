@@ -16,9 +16,7 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoieWlob25nMDYxOCIsImEiOiJja2J3M28xbG4wYzl0MzJxZm0
 
 // const
 const municipalityCitiesArr = ['北京市', '上海市', '天津市', '重庆市', '香港特别行政区', '澳门特别行政区'];
-const shenyangYearsArr = ['2012', '2013', '2014'];
-const DALIAN_STRAT_POINT = [38.862, 121.514];
-const SHENYANG_START_POINT = [41.78655, 123.31449];
+const HK_STRAT_POINT = [22.280079775369572, 114.1810190268555];
 const cities = {};
 let provinces = [];
 let countries = [];
@@ -28,16 +26,14 @@ const locationForRun = (run) => {
   const location = run.location_country;
   let [city, province, country] = ['', '', ''];
   if (location) {
+    const l = location.split(',');
     const cityMatch = location.match(/[\u4e00-\u9fa5]*市/);
-    const provinceMatch = location.match(/[\u4e00-\u9fa5]*省/);
-    if (cityMatch) {
-      [city] = cityMatch;
-    }
+    const provinceMatch = l[l.length - 2];
+    city = cityMatch ? cityMatch : provinceMatch;
     if (provinceMatch) {
       [province] = provinceMatch;
     }
-    const l = location.split(',');
-    const countryMatch = l[l.length - 1].match(/[\u4e00-\u9fa5].*[\u4e00-\u9fa5]/);
+    const countryMatch = l[l.length - 1];
     if (countryMatch) {
       [country] = countryMatch;
     }
@@ -79,9 +75,7 @@ const locationForRun = (run) => {
 // Page
 export default () => {
   const [year, setYear] = useState('2020');
-  let onStartPoint = shenyangYearsArr.includes(year)
-    ? SHENYANG_START_POINT
-    : DALIAN_STRAT_POINT;
+  let onStartPoint = HK_STRAT_POINT;
   const [runs, setActivity] = useState(activities);
   const [title, setTitle] = useState('');
   const [viewport, setViewport] = useState({
@@ -93,9 +87,6 @@ export default () => {
   });
   const changeYear = (year) => {
     setYear(year);
-    onStartPoint = shenyangYearsArr.includes(year)
-      ? SHENYANG_START_POINT
-      : DALIAN_STRAT_POINT;
     scrollToMap();
     setActivity(activities);
     if (viewport.zoom > 3) {
@@ -107,7 +98,7 @@ export default () => {
         zoom: 11.5,
       });
     }
-    setTitle(`${year} Running Heatmap`);
+    setTitle(`${year} Activities Heatmap`);
   };
 
   const locateActivity = (run) => {
@@ -117,7 +108,7 @@ export default () => {
     const geoData = geoJsonForRuns([run], run.start_date_local.slice(0, 4));
     const { coordinates } = geoData.features[0].geometry;
     if (coordinates.length === 0) {
-      startPoint = DALIAN_STRAT_POINT.reverse();
+      startPoint = HK_STRAT_POINT.reverse();
     } else {
       startPoint = coordinates[Math.floor(coordinates.length / 2)];
     }
@@ -138,7 +129,7 @@ export default () => {
       <Layout>
         <div className="mb5">
           <div className="w-100">
-            <h1 className="f1 fw9 i">Running</h1>
+            <h1 className="f1 fw9 i">Activities</h1>
           </div>
           {viewport.zoom <= 3 ? <LocationStat runs={activities} location="a" onClick={changeYear} /> : <YearsStat runs={activities} year={year} onClick={changeYear} />}
           <div className="fl w-100 w-70-l">
@@ -186,19 +177,12 @@ const YearsStat = ({ runs, year, onClick }) => {
     <div className="fl w-100 w-30-l pb5 pr5-l">
       <section className="pb4" style={{ paddingBottom: '0rem' }}>
         <p>
-          我用 App 记录自己跑步8年有余，下面列表展示的是
-          {year}
-          的数据
-          <br />
-          现在我用NRC记录自己跑步
-          {' '}
-          <a className="dark-gray b" href="https://www.nike.com/nrc-app">
-            Nike Run Club
+          展示我自己运动的一些数据。样式和数据处理方式参考 {" "}
+          <a className="light-gray b" href="https://yihong.run/running/">
+            Yihong's Blog
           </a>
-          {' '}
-          希望能激励自己前行，不要停下来。这个展示也是我学习React的第一个项目，
-          希望自己有所成长。
-          <br />
+          <br></br>
+          （目前还是初始版本，之后会逐渐迭代）
         </p>
       </section>
       <hr color="red" />
@@ -264,8 +248,8 @@ const YearStat = ({ runs, year, onClick }) => {
   return (
     <div style={{ cursor: 'pointer' }} onClick={() => onClick(year)}>
       <section>
-        <Stat value={year} description=" 跑步旅程" />
-        <Stat value={runs.length} description=" Runs" />
+        <Stat value={year} description=" Activities" />
+        <Stat value={runs.length} description=" Workouts" />
         <Stat value={sumDistance} description=" KM" />
         <Stat value={avgPace} description=" Avg Pace" />
         <Stat
