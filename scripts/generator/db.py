@@ -37,7 +37,7 @@ class Athlete(Base):
         return {"id": self.id, "firstname": self.firstname, "lastname": self.lastname}
 
 # reverse the location (lan, lon) -> location detail
-g = Nominatim(user_agent="yihong0618")
+g = Nominatim(user_agent="geekplux")
 
 
 def is_point_on_track(
@@ -155,8 +155,8 @@ def update_or_create_activity(session: Session, athlete: Athlete, strava_activit
                 print("+++++++limit+++++++")
                 time.sleep(60)
                 location_country = str(g.reverse(f"{start_point.lat}, {start_point.lon}"))
-                
-            
+
+
         activity = Activity(
             strava_id=strava_activity.id,
             athlete=athlete,

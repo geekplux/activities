@@ -8,7 +8,6 @@ import os.path
 from xml.etree import ElementTree
 import argparse
 import gpxpy.gpx
-
 from stravalib.client import Client
 
 logging.basicConfig(level=logging.INFO)
