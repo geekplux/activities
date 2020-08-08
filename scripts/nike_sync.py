@@ -62,7 +62,10 @@ class Nike:
 
 def run(refresh_token):
     nike = Nike(refresh_token)
-    last_id = get_last_id()
+    try:
+        last_id = get_last_id()
+    except Exception:
+        last_id = None
 
     logger.info(f"Running from ID {last_id}")
 
