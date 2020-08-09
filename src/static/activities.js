@@ -156,6 +156,23 @@ const activities = [
     "average_heartrate": null,
     "average_speed": 3.072,
     "streak": 1
+  },
+  {
+    "strava_id": 3885504361,
+    "athlete_id": 64654029,
+    "name": "Bowen Road Hike",
+    "distance": 9754.6,
+    "moving_time": "2:00:06",
+    "elapsed_time": "2:03:33",
+    "total_elevation_gain": 266.4,
+    "type": "Hike",
+    "start_date": "2020-08-08 23:57:26+00:00",
+    "start_date_local": "2020-08-09 07:57:26",
+    "location_country": "Sinopec, \u5805\u5c3c\u5730\u9053 Kennedy Road, \u4e2d\u534a\u5c71 Mid-Levels Central, \u91d1\u9418 Admiralty, \u4e2d\u5340 Central District, \u9999\u6e2f\u5cf6 Hong Kong Island, \u7063\u4ed4\u5340 Wan Chai District, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "}s}fCqgywTc@fACN?RBJFJ|@b@T@~@Uh@Ab@B`@Hx@d@\\HX?^Md@G|@HV?u@UWCcAAe@MMMGQQqAa@u@JcAZ}AC{BJaCz@mEJ]JQTSl@]b@eALQxAqAxBy@ZAfBNnCv@b@DF?DMV{@CCIj@]v@BFPNb@LZNr@LT@FAJO`@_ABc@Iq@D[HMl@_@Ux@t@v@Nb@Lp@\\r@h@VDHECLC?FEELXLr@Xn@@n@J@\\Ef@Vn@Bf@HRC~@Y|@k@PG^Cp@JVCrAq@x@Wz@_@PSHe@JKFAFDLOTG~@@VG`@]T[J[NeAN[JEJ?p@PjABj@b@t@LLDFFFPHx@@b@Cj@DXHLRN\\NTD~@Ax@DVCPMF_@JWNQVMZKrAGr@JRAHGR_@n@a@VY^w@b@s@j@gB@OE_@AQPw@Du@xAqA`BwBz@u@R]Tm@j@]JMJYBg@W[SMm@Ps@Ay@Zg@Lk@Ee@P_A?{@LSAMGKIEMG{@GSWk@a@g@IQAOBa@?[CQIMq@Sk@IeAW_CPGq@BgA@IJM@MKqADcAQo@h@OfAw@dAcAj@u@n@k@j@o@j@]RSBMAc@He@Pi@^q@FU@UIg@@Wn@sDHgAJs@HU\\g@XcA`AyA`@cBVw@Xa@h@g@L[Ba@Au@u@eAKUQ{@Bg@AOGO[c@a@wAOWyASYo@a@o@K[E[Dq@FWHUTUp@_@Va@L]?QEOi@o@KWAYJc@PWd@SNEJFDEEIDCdAAR}@Xo@DUWWeAg@OE]CkAAi@@SFeB~@SB_@?i@b@mAh@m@d@mAl@OL_@n@k@n@gAzA}ArCoAjCOR_@TIRGj@PjABvBC`@IVa@x@KLi@\\_@l@GZFr@C\\QdA[l@q@p@w@Xk@j@EPKHgAJoACYDaA\\q@\\k@TSJILEPAp@Gj@GvA@nAMx@g@hAi@v@y@l@m@p@IRB`@Jn@LPp@l@JRBNC\\a@~@GzAGTMRQJUFOA[QSEa@Ds@NOJEHCz@ITSP_B|@aC|@YBaAAWFYZqArB_@Rw@PKHQ`@Iv@Q\\URg@Pc@`@Y@WIQOyAVARRz@CJEDmAIHR?Dg@AUBEBDF@LMDmBIqBUBZQh@WfBB`@N^OFc@?",
+    "average_heartrate": 140.5,
+    "average_speed": 1.354,
+    "streak": 1
   }
 ];
 
