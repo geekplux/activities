@@ -190,6 +190,23 @@ const activities = [
     "average_heartrate": 172.6,
     "average_speed": 2.618,
     "streak": 2
+  },
+  {
+    "strava_id": 3896652667,
+    "athlete_id": 64654029,
+    "name": "Evening Run",
+    "distance": 1807.4,
+    "moving_time": "0:10:27",
+    "elapsed_time": "0:10:27",
+    "total_elevation_gain": 14.1,
+    "type": "Run",
+    "start_date": "2020-08-11 10:34:28+00:00",
+    "start_date_local": "2020-08-11 18:34:28",
+    "location_country": "\u77f3\u5858\u5480 Shek Tong Tsui, \u897f\u74b0 Sai Wan, \u9999\u6e2f\u5cf6 Hong Kong Island, \u4e2d\u897f\u5340 Central and Western District, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "y``gCq_swTSHUAQg@[mBGk@a@uBGk@QaACY@U]gBEwAWc@Qg@i@cBc@w@s@c@aAu@OOMQQISGs@e@]a@FkB@o@GcA@UCm@Bk@?wADiBAm@Hm@AS@yACm@JqBAo@?UBSR}@@S?eABSFQFk@Ne@?UPe@DWLg@AUDU^kBDi@R{@Dk@FSBSRaAN_AbAy@d@U\\Y`@a@DS",
+    "average_heartrate": 168.3,
+    "average_speed": 2.883,
+    "streak": 3
   }
 ];
 
