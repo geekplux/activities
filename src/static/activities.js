@@ -245,7 +245,7 @@ const activities = [
   {
     "strava_id": 3914333776,
     "athlete_id": 64654029,
-    "name": "Morning Hike",
+    "name": "Lion Rock & Unicorn Ridge",
     "distance": 7115.5,
     "moving_time": "2:13:46",
     "elapsed_time": "2:51:47",
