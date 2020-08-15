@@ -241,6 +241,23 @@ const activities = [
     "average_heartrate": 164.7,
     "average_speed": 3.372,
     "streak": 5
+  },
+  {
+    "strava_id": 3914333776,
+    "athlete_id": 64654029,
+    "name": "Morning Hike",
+    "distance": 7115.5,
+    "moving_time": "2:13:46",
+    "elapsed_time": "2:51:47",
+    "total_elevation_gain": 571.6,
+    "type": "Hike",
+    "start_date": "2020-08-15 00:05:55+00:00",
+    "start_date_local": "2020-08-15 08:05:55",
+    "location_country": "\u7af9\u5712\u8b8a\u96fb\u7ad9 Chuk Yuen Substation, 3, \u96c5\u7af9\u8857 Nga Chuk Street, \u9cf3\u51f0 Fung Wong, \u7af9\u5712\u806f\u5408\u6751 Chuk Yuen United Village, \u4e5d\u9f8d Kowloon, \u9ec3\u5927\u4ed9\u5340 Wong Tai Sin District, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "ygkgCsy~wT[u@UMOCgADy@C_@EQAo@Hi@@yATqA`@g@j@}DdCODUAI@CFATEJk@b@UVw@d@B@WGYKQOJm@?SYu@Os@IOOK}@Hs@C}@DQFg@ZMB}AWi@UGOES?SBWNq@h@sAX{A?WCQWg@_BcAaBKoBDc@Eq@?OEKMb@}@BQCOIKOEQAk@DQEIIWo@OQg@e@{@k@IO`@]JMAMGGMCO?SNOVWp@OTB?AEBDBC?LGz@MZ?XHD`@BADKPPDJDJPBLCNSBMVYJBVC`@Md@CV@E?DCD?n@FbAA~@Gf@NnAEx@Mb@CT@bAHl@ANM\\a@l@oCxB_@TAb@GZn@l@RXJDZ@Zb@BJBVFLf@Vd@Nj@`@DLAVMb@AL@JJLZTRJz@Fj@`@HL@LGRa@`@Ud@s@l@MPCL@PFLLHx@RTTPVa@p@CNBd@Lt@Dn@GHq@`@QNELA\\ETbAK^QP?r@f@HDL@PLn@JXNJPE?TBPAHB?CDHTDP?DDBCZEp@JQGEEC[DABECNA@A?@CJd@PVLp@DHH@BFCLJDCDIBN`@DDA?DJTNNXTTBTAb@DFEXJWI@HAADCCB?C?@BBEE??n@AFE?D@CCB?CJIJGPC@K^?TMJQXCPIT@LPb@DBLADF@FDBV`ADATj@Pt@Zj@l@p@Hd@DJf@b@^LLLAFLJB?AG\\^LDA@KCa@?s@RkBGq@O]Og@o@E[]SU]MI[K_@EM@[JI?OMYi@USKCYAa@Ha@[@KLUFG`@Q\\YHO?YQm@AQF_@Dy@@u@Be@?QOy@KUQQe@SJa@g@c@GQAc@WSO]o@y@GW?g@WKc@GGECECa@COJq@HMLIn@OBI@e@Qq@Ak@CUFQ^[JQMUOKc@Ka@CMGIO?[FQJOx@k@Rc@\\i@FSG[Jo@DMRUJSJIJATAZDHEN]@k@PILATIRON_@AELCJ]VWLQF[N?HIZc@Pa@V_@PM\\KNGz@y@LYReAJSNMVMFW@BAC?BBBRANKLO@k@EWKI_@KIGJCh@]dAKN@\\H~@@ZHJHHJX~@B^Ax@FZAMVEjAYbAw@FK?KEKFQ",
+    "average_heartrate": 140.9,
+    "average_speed": 0.887,
+    "streak": 1
   }
 ];
 
