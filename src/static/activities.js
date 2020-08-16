@@ -258,6 +258,23 @@ const activities = [
     "average_heartrate": 140.9,
     "average_speed": 0.887,
     "streak": 1
+  },
+  {
+    "strava_id": 3919148431,
+    "athlete_id": 64654029,
+    "name": "Morning Run",
+    "distance": 5826.9,
+    "moving_time": "0:38:21",
+    "elapsed_time": "0:38:21",
+    "total_elevation_gain": 6.3,
+    "type": "Run",
+    "start_date": "2020-08-16 01:08:22+00:00",
+    "start_date_local": "2020-08-16 09:08:22",
+    "location_country": "\u5c48\u5730\u8857\u96fb\u8eca\u5ee0 Whitty Street Depot, \u5e72\u8afe\u9053\u897f\u5929\u6a4b Connaught Road West Flyover, \u77f3\u5858\u5480 Shek Tong Tsui, \u897f\u74b0 Sai Wan, \u9999\u6e2f\u5cf6 Hong Kong Island, \u4e2d\u897f\u5340 Central and Western District, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "_``gCe|rwTKPQh@K`AG~@?l@GV?RIf@?RHd@Rb@d@t@|@r@x@dAn@b@dApA~@n@CRKNARKPS@mBmBc@q@]Ww@w@[_@We@OQGQMOIQQ}@?i@?k@TuA@UAuABg@@eBU?UH_BRSFs@ZKN?TOzA?j@K~@GTKPApABdAE`AERQFOO@eA^aDJi@Jc@@i@DUAi@Bk@C}@Fm@QOGSIi@Ak@ISO{@IUMk@AWO{@Eg@My@Ek@g@yBAk@Ie@K_AEQMQESUuABS[oA_@wBCkBFwA?_ACk@BkDDmBD}FDk@EaAD{AP}@H{@R_AV{A@SP_AHQGUVaAXeB@UJODSJi@BWINIbAQf@KlASpAIPQz@WzBGPAVQf@A|@YhE@`AD~@Ej@If@E|@@`AE~@?|@Ef@?z@BTBrCEj@F|@@j@R~@VhBCTBTFPKPFf@Tx@Zt@Dl@?|@P`AFRFf@Lf@BTHRL|@@TPlAJR?RFl@R|@PHLPD`AHPAR@zAC`CGh@Mh@YhBMlBTAHi@D_AFUJsA?UFk@C}@N{@KqAAWBWYa@Og@KcAMk@QyAQ}@Kc@AUGS?WKi@Mi@Kk@Oi@Ek@Sy@Ge@AU",
+    "average_heartrate": 158.0,
+    "average_speed": 2.532,
+    "streak": 2
   }
 ];
 
