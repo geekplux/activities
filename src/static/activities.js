@@ -326,6 +326,23 @@ const activities = [
     "average_heartrate": 172.2,
     "average_speed": 3.044,
     "streak": 3
+  },
+  {
+    "strava_id": 3949370016,
+    "athlete_id": 64654029,
+    "name": "Afternoon Hike",
+    "distance": 9609.6,
+    "moving_time": "3:01:46",
+    "elapsed_time": "3:55:53",
+    "total_elevation_gain": 614.7,
+    "type": "Hike",
+    "start_date": "2020-08-22 07:21:47+00:00",
+    "start_date_local": "2020-08-22 15:21:47",
+    "location_country": "\u9cf3\u51f0\u5f91 Lantau Trail, \u9577\u6c99\u4e0b\u6751 Cheung Sha Ha Tsuen, \u9577\u6c99 Cheung Sha, \u96e2\u5cf6\u5340 Islands District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "{ixfCmpmvTg@P_@\\@SFAKTOJNGBQe@cAEg@O[?SWe@AS[QH[m@o@H_@MWDFA[aAqA[KYFIW]AEYIB_@QUQYi@QcAAq@Qm@BKBADDIUV[@W_@YQ[a@YYa@o@]KSSs@Fs@PkACGD]Ey@O_@Y]?I@JYOUWMACa@BKSe@CUc@g@@OK@FA]oAUiDDMj@l@@E?F?I]U_@ASQi@OQOOAMJ_Ao@YBk@Kc@M_@WOc@SWMg@SSAa@Jy@BAEAADw@`@ICe@`@GNi@\\@JP@KI@DCA@KDD@GEP@SDDIGWTa@H}CFe@\\_ADa@Ka@@e@VELJKEIPNEKLIJWf@Wf@O`@}@^oBDEDDQc@RSU}@AmAe@m@g@SCOB?KEDAGMBKEOXPRU@s@PQDg@RMPWTECYB]S[_@OQc@?YKKE]MDOZUPe@n@k@A[SuAcCi@cC]gAGo@Ji@Bu@Kc@_@y@ODTSIg@@Uc@m@w@YgAy@c@Ss@KOq@oA]Mg@?_AFc@}@e@Uk@{@}@?[Yc@Aa@Ko@FuAGm@Bc@y@aDDs@PYCy@LEMw@?a@HYX_@Uo@Ac@BMH?B[LYh@g@Tg@CSNO[SGM@M`BqAZIUYm@oBCg@o@s@O[i@yCw@g@o@eAWCYw@PYlAaAh@aABy@XgCh@WJW@[Ig@Fs@JYAoAH{@HBXx@`@s@Fm@i@oB?[^o@Mm@_Ba@m@{CRY^IX?EGJ?@g@PSJ]`@_@?UOc@@Wj@_@NYLG`@yANSNEAGHG?Q\\PPRjA]n@aAHq@|@_@R]`@?z@W\\{@d@i@c@MAa@Me@q@m@AGJ?AGg@c@KWAs@JqAFe@HBNyAb@i@nAcCH_@@k@t@kANkAb@cA@M|@o@\\Ie@NNKP@xAv@j@@^iA\\k@GU_@W[c@oA}CWw@No@LLKF`@aBQgAi@u@iCyAa@i@YyAYcDM[i@{@a@c@e@UqC{@o@_AMi@MeB@oAIyAe@kAiAiAUi@Ao@Fa@x@mBEm@K]]Wo@OmEzByADWEe@WyAoAuA{A[s@i@{BgAo@y@u@g@oAG_@IgALuBKg@MMOEcE[JMFi@VINP",
+    "average_heartrate": 126.7,
+    "average_speed": 0.881,
+    "streak": 1
   }
 ];
 
