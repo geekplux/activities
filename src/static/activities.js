@@ -330,7 +330,7 @@ const activities = [
   {
     "strava_id": 3949370016,
     "athlete_id": 64654029,
-    "name": "Afternoon Hike",
+    "name": "Sunset Peak",
     "distance": 9609.6,
     "moving_time": "3:01:46",
     "elapsed_time": "3:55:53",
