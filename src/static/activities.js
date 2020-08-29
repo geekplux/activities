@@ -394,6 +394,23 @@ const activities = [
     "average_heartrate": 168.4,
     "average_speed": 2.704,
     "streak": 2
+  },
+  {
+    "strava_id": 3980420924,
+    "athlete_id": 64654029,
+    "name": "Morning Hike",
+    "distance": 21441.9,
+    "moving_time": "5:22:58",
+    "elapsed_time": "6:19:48",
+    "total_elevation_gain": 843.6,
+    "type": "Hike",
+    "start_date": "2020-08-29 00:43:50+00:00",
+    "start_date_local": "2020-08-29 08:43:50",
+    "location_country": "A\u5ea7 Block A, \u58eb\u7f8e\u83f2\u8def Smithfield, \u5805\u5c3c\u5730\u57ce Kennedy Town, \u897f\u74b0 Sai Wan, \u9999\u6e2f\u5cf6 Hong Kong Island, \u4e2d\u897f\u5340 Central and Western District, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "qp~fCmzqwTp@?Q~@Bx@x@PTp@Od@bCLQrCv@cAf@vBzAVjApAx@{@z@Nl@mA`AWl@\\~BpE|B`HXvDo@T}@jDPfBy@fA\\cBgAu@Tz@cB|AkBx@iAa@Ec@f@mAs@oB|AaHaAs@DqACT?d@|@v@Dh@gB|Ft@nBg@nBd@r@rDaAv@iABaA`An@oBdD`@jCCt@STaGWaC|BZTvC@j@|@eAx@Qv@`@|@p@XzAi@rAF~@u@nDg@dB_BJsAThC_Az@}A|CwA|@x@pAUIFy@dAq@b@jBjA@Fr@_@GLi@cAGs@}ApAw@Jy@~BqCA{AZcBl@sAvAw@v@oB?eA{A_Ff@gDaAsBeA}EcCoBq@{Ao@uHuB_EqAg@a@q@aIo@o@iALsAOa@l@ShAXD_E[[~@{@vB_@Ig@_Bh@cA{BfCKg@LBc@Ul@Vs@t@Zq@cAf@yDKyAzBgBt@kDhAo@rAjBGh@j@nD[pGDlF|EAfDyBbAsAhCqA~AObD^fB_A~BOnBm@`@iAjDyB~BIbCeATw@FVlBDjAiATgAf@_@eBKmE{L[mCf@HMi@OT^qASuAfAmCf@aEaAgChBRh@`BfBt@m@~@eBJE|BXp@rBq@jAuAxAMFk@n@g@jAUzBpB`FtB`ESLUUMXYs@kAPu@EuCfAs@lCj@CgAoB}ApBu@n@iAd@kBo@q@rB}B`By@Vs@r@IlBqDxDqAhCm@ZTRdCvDpArAB\\pBvGmA^h@Ij@jAj@p@`E|@_@x@qGLFcCiE]wEoAYq@qAkBqAh@eBoAgE_AgAGoDcBqAmAYgAkBkD{Cj@c@lHzB`EmCdHvCj@KUiE{@iAwBcGc@aGw@_BiBu@}BcCcAoBcA]c@yAgEkAwCiAWkDuAYm@V{@i@sBGi@g@zAeCEs@u@qARk@~@GzCr@`Go@_@{ErB_Ib@@KmC`@iAuA{Ag@yAHWMHGm@mCQW}@x@mALsA~@wBdA_@AcA|AgAjAgDpDyAVq@aA_A_EVc@a@vBiDDiBbBgCtAsDJkAWqAgBaBg@{AaA{@cEkAwAJk@qAtB}ChAiD^_OpBw@?eFd@kBbBsCp@A^e@}B}BUM_@Mi@TmEmAsA\\YhAYYmAgCKqBk@iBkAuAy@Ay@kAFsDdB{Ai@eBAwA`CcAlAuAi@y@Ea@NTO@",
+    "average_heartrate": 133.6,
+    "average_speed": 1.107,
+    "streak": 1
   }
 ];
 
