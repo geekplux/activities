@@ -496,6 +496,23 @@ const activities = [
     "average_heartrate": 176.9,
     "average_speed": 2.881,
     "streak": 1
+  },
+  {
+    "strava_id": 4047671471,
+    "athlete_id": 64654029,
+    "name": "Sharp Peak",
+    "distance": 10932.4,
+    "moving_time": "4:01:58",
+    "elapsed_time": "6:41:36",
+    "total_elevation_gain": 539.3,
+    "type": "Hike",
+    "start_date": "2020-09-12 03:03:47+00:00",
+    "start_date_local": "2020-09-12 11:03:47",
+    "location_country": "Water Filling Station, Maclehose Trail, \u5317\u6f6d\u51f9 Pak Tam Au, \u5927\u57d4\u5340 Tai Po District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "mfzgCmryxTE[u@gAy@_As@o@e@{@c@Y_@m@q@k@[o@k@]YgAaAkB]gBQSy@Yy@iBCo@_@cAf@sBPqAUo@v@YLUSaBHkAOmA@q@Qk@@cAWiABoAQeACs@p@D`@i@bBoAl@IVwAf@m@Tg@K{AT[l@_@MuAP{@D{@T{AVc@z@o@rAQe@Y\\u@TaAb@g@Rq@f@iAA}APyATo@McAMqBMQYIw@CWMSHLKmAgACgALk@lAmAPm@EyALkB_@QBFNHHIe@o@`A{AXsDZcACy@NcASw@CaAl@cDQeAXoDJcIFOb@Y`@o@Bi@S{@@[V}@j@SRSBUG{@j@wABw@S}@RuBIyAq@_@Kk@{AiCAeAFD?FEDn@{@Te@]YWi@YMuAIUM}AuAM[Qq@DGg@Sm@Cc@^Sm@UY[H{@c@CFH?I@@GDEDLGI[NHINFDM]CSWk@A]LSQw@K[a@[LSAMUY}Aa@L[Ei@eAUMs@gA_@WYc@@QQMScCOc@S}@AUBBa@_AMa@EFFCG@HCEANCT_BLIEOFa@IK?a@Zq@Bc@MwCYs@DUGa@KCI_@HOEFEkBGDD?EIc@S_AE]Yg@O_BGw@a@G[IBLB_@MqAIyDPWCKKs@BIQODHIEDDHIMFC@NCILJMIPAOLDCCE@FFIADBAKCRNLEb@LVOAH?Gp@DAP\\O`AInCPdBMjBNBNH?Ar@FREENHDLz@RGA@DFIGBfAPJUVQh@J~@g@rAUBQTM\\k@v@QPo@NOPKCD^ADS\\?XQT@pB{@Zu@`@?`@a@`@Ub@w@d@e@Ji@h@cAXQb@HSAOOZw@t@UEEMDRc@MS@a@CmA`@YBSJCCD@IROP_@p@m@PEAFCGAFHI?D@MVYAJ@KBDIEJHUBHEAHDIE?P}@^O?_@HOj@g@LD`@G`@Ub@?bAQBMRQAHFI\\ADHZAN]RIbADZJRg@NRRn@PXAKTv@TVHj@n@`@ZCb@PlAHHRJANR\\L|BzAAb@Oh@Hz@OVt@@d@LdHlDx@VX@ZT@P~C`Al@|@~@B`A]DMF?ABIUCLFK@\\NQ}@h@k@Hu@EaCw@]JUR_AnD?j@IZTbCn@p@vBp@jAa@p@G\\QnALJE@MFA?Ff@U|@KZH^GFKFFl@KzAi@RWf@[",
+    "average_heartrate": 134.6,
+    "average_speed": 0.753,
+    "streak": 1
   }
 ];
 
