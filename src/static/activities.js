@@ -666,6 +666,23 @@ const activities = [
     "average_heartrate": 156.7,
     "average_speed": 3.162,
     "streak": 3
+  },
+  {
+    "strava_id": 4145197051,
+    "athlete_id": 64654029,
+    "name": "Afternoon Hike",
+    "distance": 9186.2,
+    "moving_time": "2:06:04",
+    "elapsed_time": "2:18:08",
+    "total_elevation_gain": 422.9,
+    "type": "Hike",
+    "start_date": "2020-10-03 08:16:34+00:00",
+    "start_date_local": "2020-10-03 16:16:34",
+    "location_country": "\u9999\u6e2f\u7db2\u7403\u4e2d\u5fc3 Hong Kong Tennis Centre, 133, \u9ec3\u6ce5\u6d8c\u5cfd\u9053 Wong Nai Chung Gap Road, \u8dd1\u99ac\u5730 Happy Valley, \u7063\u4ed4\u5340 Wan Chai District, \u9999\u6e2f\u5cf6 Hong Kong Island, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "ipzfCqd~wT~@m@fAa@v@g@jBs@fB[XSHS?}ANeBGg@Uq@AMBu@HI@D?NUFYcB_@s@yAiBISE]Ai@Hc@LQ`@_@JWBUFDJMGBGCYq@s@u@GE[AcAiAs@[M@YNc@H[?a@GSFSRW`@[p@YHs@BIBy@t@e@x@MH[JWb@SLaAIAGw@g@_@I_@Ha@RQ@_AKmA[w@G]RSVU?q@CUI]Wa@QcAs@e@e@YGe@?MESKQYg@e@MI_@GQDAFBC?ISa@Cc@GQOCBCC?DSEY@g@DKHKBODg@Ca@Li@Bq@DYES@WBg@FGa@g@Ic@GE?IHS]aAKOu@e@]u@a@_@Yg@?ODYUQEQC_BBGAMBABkBCSQe@KiASWa@YWg@UW]SW]gA{@IWA]Im@OQQe@YMIQBq@n@cAD_@\\u@Hk@L_@DQBi@CS]q@D@IUMOC{@b@UHIFe@JYh@u@`@_@@I?WBIt@g@NW`@]EHB??C@DAMLQCKRSPm@BOLYHa@PYB]Cs@Pq@d@_A@KEM@EJEJDTn@r@n@`@Vl@bALL@MGYk@eBj@kAJYHq@B{@H_@Zo@d@q@RSHAhCRzCn@v@XK|AF`@BHF@T?TERIRSFODUC_AJHVHp@B^Gh@a@VEX@XH`BhALTJfABJDBjAEbAB`@GRKRSb@w@FCAEYjAARBTo@tASz@Kl@A^B^JZLTd@f@~@M\\@`@NhAl@VHZ{@f@i@V_AxA~ApA`BLV?@MJi@l@KX?LXDv@XZDd@CdAW@LTXBHALMLg@JSJHKLGt@KMy@@[D_@Vw@t@kBDW?o@ViAJWVYb@cAR[f@OdB]b@QbAwAVYr@]x@QrBIbAHz@Tn@X`A|@AADE^MVQXTH?FEPa@C[B_AAMs@G_@sAA_@Ha@PYr@G^SP[Da@KY]WPk@AMCIy@e@a@KNO@KMQWq@UaACSH_@LUHk@PSL[TUvAg@`AWbAy@JkAh@MJO@QB??DE@ECDDABCCGs@BSXMj@ERGr@cAh@]RGP@v@`@VFn@SJITe@Ao@@QR_@NIn@TAAADh@CFHLBdFA\\AjBJ~APt@CbBm@hB}@vCkAVGV@`@VZFd@E`A[zBLZHNJNRP\\JJn@HpADPDJJJB_@KPL",
+    "average_heartrate": 145.3,
+    "average_speed": 1.214,
+    "streak": 1
   }
 ];
 
