@@ -683,6 +683,23 @@ const activities = [
     "average_heartrate": 145.3,
     "average_speed": 1.214,
     "streak": 1
+  },
+  {
+    "strava_id": 4150415189,
+    "athlete_id": 64654029,
+    "name": "Afternoon Hike",
+    "distance": 1144.7,
+    "moving_time": "0:17:34",
+    "elapsed_time": "0:18:35",
+    "total_elevation_gain": 140.7,
+    "type": "Hike",
+    "start_date": "2020-10-04 09:36:23+00:00",
+    "start_date_local": "2020-10-04 17:36:23",
+    "location_country": "\u9999\u6e2f\u5927\u5b78 The University of Hong Kong, \u8584\u6276\u6797\u9053 Pok Fu Lam Road, \u77f3\u5858\u5480 Shek Tong Tsui, \u4e2d\u897f\u5340 Central and Western District, \u897f\u74b0 Sai Wan, \u9999\u6e2f\u5cf6 Hong Kong Island, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "y__gColswTr@HT?n@CJEBG@KCo@@y@DELINQFKBMGa@D_@?}@Kg@LqABMHIb@SNAL@JFJL~@nBL~@DNTXXNVBXE^o@FCRBDSRQTKd@EN@ZJj@b@b@BLHh@DHLAPGJUVGLFf@c@\\]h@]^]ZGNCTN~@IjADTJT@TIZSX[NGS",
+    "average_heartrate": 116.4,
+    "average_speed": 1.086,
+    "streak": 2
   }
 ];
 
