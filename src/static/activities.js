@@ -768,6 +768,23 @@ const activities = [
     "average_heartrate": 163.4,
     "average_speed": 3.163,
     "streak": 2
+  },
+  {
+    "strava_id": 4174505641,
+    "athlete_id": 64654029,
+    "name": "Morning Hike",
+    "distance": 16553.5,
+    "moving_time": "3:59:13",
+    "elapsed_time": "4:26:54",
+    "total_elevation_gain": 649.1,
+    "type": "Hike",
+    "start_date": "2020-10-09 23:55:22+00:00",
+    "start_date_local": "2020-10-10 07:55:22",
+    "location_country": "\u9ec3\u6ce5\u6d8c\u5cfd\u96fb\u7ad9(\u9ad8\u5ea7) Wong Nai Chung Gap Substation, \u5927\u6f6d\u6c34\u5858\u9053 Tai Tam Reservoir Road, \u6e23\u7538\u5c71 Jardine's Lookout, \u7063\u4ed4\u5340 Wan Chai District, \u9999\u6e2f\u5cf6 Hong Kong Island, \u6771\u5340 Eastern District, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "gbzfCyl~wTBoD_AoEm@iAqAuAK]@wBp@_Ca@[Sy@i@@y@cAu@c@mAj@u@QWDeAbByAV}@l@i@dA{Ax@y@Uw@i@g@?eA`@qCg@uAD_@ZeAGsDoCqAGaAmAgAQOeA]_@AiAT}BRg@LaDq@sAFc@[y@iAy@Sq@c@WWw@Da@]WCiCNy@Ao@m@eCwAgBeCoBUgBQo@i@i@@u@r@qAt@qCoAb@kAl@gAt@oAxAy@X_@d@cAd@cAHw@Gm@SmAFu@M}AbAsBf@w@j@{An@cAOoALeA_@oAVcEm@]RW`As@ZQq@G_B]]SuB[WS{@mAo@c@}AJ?vBm@hBLlA|@vDg@\\Yf@cB^a@Eu@FSxBaBjBDl@o@|@SJ]?aAf@aAVJrBfBjEHxAl@ZANU@q@p@eB~CPv@g@VgAbCwAlAoBjAiAt@UzAAlCuAk@O?SJLROLeC^c@V}AjB{An@}@h@BzEYlAUtCiA`BTlFsA~@s@rAO\\g@VyEz@gC?[Ge@`BsADi@x@s@Pg@pBAdAaAHgA\\g@Nm@~AyBh@i@Bs@x@kFbAwAzAcArEq@~BlAhAnARZX`B?xAm@l@aBA`BO`@]lBpAxALIFNPvAEtBXn@UdBXVRt@Uf@k@vBOf@UjBd@rACd@Nn@Kh@~@PDl@Wf@RAj@CQCBB@UtALh@ZRTo@PaBD_Bd@oAq@iDaAMkB`@_AaBuASi@eBoAi@z@cA@s@sF}BeBwAo@Us@eBGm@v@y@h@Pp@n@x@i@lBZT^i@hA\\^zETnBt@jBPz@r@^Hb@Qt@aAvCGvCFfAuAfAQhBFbC}@zAaAb@qBxBwEMgABq@~@cCH{Cb@_AbDgD@OS]eAYyD`@aCnA_CVmCjAeLfCeAB`B{B\\mBrAGl@o@jAOj@_AlAOxE_CzAsAp@sAx@Qb@]fBsDLqA}@_BK_ApBdAtCM`CfAhAc@xAoA\\Dz@z@bF[PF?Nw@nC\\TfC_ApBUt@]f@Bl@h@`C{@`AP|Es@h@gB]oAn@EvAPTSRu@n@Lj@i@Nx@PPp@?l@Y\\h@f@Dl@MbA{@fBOdCFr@Sz@VnBdC~BUrEXb@OK@XEd@JB`@E]iACk@_AR[AYR_@AiAHOk@}AYLMUFKMa@@}@K]RcAGENW",
+    "average_heartrate": 127.8,
+    "average_speed": 1.153,
+    "streak": 3
   }
 ];
 
