@@ -670,7 +670,7 @@ const activities = [
   {
     "strava_id": 4145197051,
     "athlete_id": 64654029,
-    "name": "Afternoon Hike",
+    "name": "Hong Kong Trails",
     "distance": 9186.2,
     "moving_time": "2:06:04",
     "elapsed_time": "2:18:08",
@@ -772,7 +772,7 @@ const activities = [
   {
     "strava_id": 4174505641,
     "athlete_id": 64654029,
-    "name": "Morning Hike",
+    "name": "Hong Kong Trails",
     "distance": 16553.5,
     "moving_time": "3:59:13",
     "elapsed_time": "4:26:54",
@@ -785,6 +785,23 @@ const activities = [
     "average_heartrate": 127.8,
     "average_speed": 1.153,
     "streak": 3
+  },
+  {
+    "strava_id": 4183579600,
+    "athlete_id": 64654029,
+    "name": "Lantau Peak",
+    "distance": 6686.6,
+    "moving_time": "2:32:27",
+    "elapsed_time": "4:11:18",
+    "total_elevation_gain": 636.1,
+    "type": "Hike",
+    "start_date": "2020-10-11 07:31:02+00:00",
+    "start_date_local": "2020-10-11 15:31:02",
+    "location_country": "\u5927\u6771\u5c71\u98df\u6c34\u7f38, \u6771\u6d8c\u9053 Tung Chung Road, \u82b3\u5712 Fong Yuen, \u96e2\u5cf6\u5340 Islands District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "snxfColmvTJBDAPONYHGLEb@C`@a@JCGT[\\IR?RDZKTHXPZDj@@j@M^EPA??@BBJh@PPLXXhACr@GVBTA`@L^Ab@~@fA`@VNZFT@`@Up@ANJp@Zh@VTRFTL~@LRHTh@fBlBTl@E^IRm@t@e@~@e@\\UXMXIF@??D]fA_@h@UX_@t@KFg@@OFMLIX[^YLIHSx@@@?RNRCFCTWX?VBPCT_@f@I@EPOHCNBJWLEH@@ER]`@AJIFQDLAD@AAFDAR@G?RDN@RETEBB@CB?b@Db@P|@Er@[t@G\\A^@VH\\Dj@@ICAAb@@PSVAJ@Lk@ZAN]T?JMLADH`@NTHD@NPXCV@\\BJ@GAYE@P|AXv@Pp@B^Ah@DNBTD@?G@ECB?FBAENBJGABAC@@E@@CFM|@BRLd@B@E@CDBD?JLL^FCDWGPL]KKBCDCf@GLIh@Dd@Th@Ix@BNFRBRAXE^Fj@Ct@B\\RfAUlAB\\I\\MP_@LDJCf@CJIJK^AAD^IPATGHDH?NJLEDDHSD@AA@F?@EACEBF@CBEA@ECA@GDHHCK?DF@CCCDDFAM?DCEADBEB@@@EE?B@@CA@DBC@AEAD?IADAI?HHF@EFCAF??AIDAAAWFFFH@DGJAK?BADJ\\H`@Zb@DJFI?DBN@b@GTP\\FRNEEV`@Nd@Td@AHNBHGLR@HVPHVLLCALTRTZTJZZHK\\L`@ADMFDVEF?NOV@JKBBH?DMLDJO??NIHAHI?@HI?INQ@A^DBGDI?AHONAPPNONLLIFDV]GDJGHc@LYAOJEFKEq@d@ABFVGBKCMJENAVFf@SrAGHM?KDGPWFKRAHQHBDGVYFm@?MC@@CBWAQEB@KHYF]Pq@Jg@^]NcAVQ@YGe@@SOEAg@LeAJKHENBLN^?^GRMFi@JWX]Ti@t@cAx@i@ZYb@Sj@Ij@Mh@MpA?~@s@nBHt@T`ADp@Nb@@NEHKH_ATa@d@MXE\\LvABdAEv@Wz@F@?JC?O[RLEMIEFHSKDFI@B?i@`@u@t@EHIzAClBCt@IXK@?GCL@@@MGC@`@GHIj@Bz@C~@Np@Cl@DHFDEE@BABOFq@@k@U[?QGOFoApAGPBdARt@Bl@@MABIm@Mi@?}@BONU?IHED@HEID?F",
+    "average_heartrate": 120.2,
+    "average_speed": 0.731,
+    "streak": 4
   }
 ];
 
