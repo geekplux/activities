@@ -819,6 +819,23 @@ const activities = [
     "average_heartrate": 175.5,
     "average_speed": 3.25,
     "streak": 1
+  },
+  {
+    "strava_id": 4206915643,
+    "athlete_id": 64654029,
+    "name": "West Dog's Teeth - Ngong Ping Trail",
+    "distance": 18040.8,
+    "moving_time": "6:07:45",
+    "elapsed_time": "7:37:17",
+    "total_elevation_gain": 1070.0,
+    "type": "Hike",
+    "start_date": "2020-10-17 02:37:23+00:00",
+    "start_date_local": "2020-10-17 10:37:23",
+    "location_country": "L089, \u5dbc\u5357\u9053 South Lantau Road, \u7f97\u5c71 Keung Shan, \u6771\u7063 Tung Wan, \u96e2\u5cf6\u5340 Islands District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "m_tfCwvdvTDuAu@uCGsAHkBd@_@b@cAVkBaBgIGM_@PGiAq@iBEw@[Mi@_BaCsCo@Uu@ZYmBkABgBa@uA^]ME_@l@gCAqBa@aDiAkAc@qBiBeAL^Ch@a@r@NfBs@jAgAa@iAmAuABm@|@wAImA\\y@Eo@ZcBGAd@oAlCDz@WlAg@r@s@Ru@]cAE@cAq@mBk@gDAgAg@{Cc@u@YiBOI{A~CC|@_@v@W`BXrAO`BT|@_@tCHGm@YA]]IAU[g@KBA[yAo@?]i@c@ASKDuA}Bi@}CM}AAqAb@gCAyAc@gAa@_@MFDOYo@XeB\\s@y@oBGgAYUICMYQyB_@s@MwA_AaA{@}AQaAWWBU[WNAQGJP[k@[?a@g@{@E_A_@s@c@Uk@aCu@Ya@KRo@?S[_@l@w@H]WGP{@JCZ]CQRsB\\CQSEBNCWo@_@Le@FHEM@XMFHEWc@VNmBmAl@j@GtAWd@Df@}AnBDPe@l@L^MTEb@YFEXoB`@q@hAAnCgA^c@fA[Li@?FImDp@YGaCnAiBW_BPUXVn@Ap@iAZi@n@]F`@JVx@KBCe@g@Y_@t@mBpAw@nCKtCq@lCr@hE{BbBIf@CrF{At@M^FHMGm@X?LQEFRm@q@Pn@OF[XZUh@p@DjAb@x@Mf@^@Ea@WGc@`Am@QFvDeFtFBfAPb@I\\Pb@gAmA{@TgCgAOcBe@yBqAuCiBgB}@WDsA[]mAi@}@GWg@gALoBy@aBEsARkBUm@f@iAVyAOcB_Aw@Do@oAcCC{@f@kBi@aBaAODs@u@_AE}GqC{AUe@[_@y@JGkAmAMk@yAgAqFmG_@KIk@eEuD}@yA_IqIeCgDg@W}AsBkBwB{CqCaBqCuAkAq@mAgA}@_BeBw@kAiA{@sFuGk@_AAc@\\a@JwAj@kBm@yBt@_@|A?bAV~@YzAsEGkA_@P_@Ky@f@}@A}@My@iA?aAp@cAIkCb@{AO}@tAq@dAMOaAv@{@s@qAIu@@g@f@]GoAa@k@^gEdBw@\\m@QqCwBoEbCgAEmALc@a@oA@iAYgCc@y@OmDq@oAUuAk@m@aA}DcGyHoGkE{FoEu@XiB]Qh@_EnEeAv@}@Rw@t@eA}@yBViBx@",
+    "average_heartrate": 113.0,
+    "average_speed": 0.818,
+    "streak": 1
   }
 ];
 
