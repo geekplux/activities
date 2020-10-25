@@ -870,6 +870,23 @@ const activities = [
     "average_heartrate": 168.5,
     "average_speed": 3.172,
     "streak": 1
+  },
+  {
+    "strava_id": 4237906189,
+    "athlete_id": 64654029,
+    "name": "Plover Cove Reservoir",
+    "distance": 18291.6,
+    "moving_time": "5:38:15",
+    "elapsed_time": "6:31:05",
+    "total_elevation_gain": 911.9,
+    "type": "Hike",
+    "start_date": "2020-10-24 06:14:15+00:00",
+    "start_date_local": "2020-10-24 14:14:15",
+    "location_country": "\u767d\u666e\u7406\u8cfd\u99ac\u6703\u9752\u5e74\u65c5\u820d Bradbury Jockey Club Youth Hostel, \u5927\u7f8e\u7763\u8def Tai Mei Tuk Road, \u9ec3\u7af9\u6751 Wong Chuk Tsuen, \u5927\u7f8e\u7763 Tai Mei Tuk, \u5927\u57d4\u5340 Tai Po District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "gmchCoffxTrA[RUXwAGoB\\u@bEoDfOiOts@st@lD_ENeAwB}CwAyAmA}Ba@wAeCq@eA{@KmBgAyAMm@`@oAhAk@Bs@]kBh@mA|AHpAx@nBa@Ay@cB_CWy@?o@v@kAt@kBNw@CuDrAsALgA]]qAYgB_AQ@MZa@BeCo@_E}BU_@JUGKoBCqGqCCl@m@MeAqBaDoC[u@gA}@gBkCg@kAEw@Yo@cBiBQu@Dy@s@_AsBT}Ar@sCi@_@Po@v@GEJVIh@WEeAf@kAhBy@EsAZu@CDQKQ_EiAKSUHPEQ[@n@AG@DHKOG[u@y@WYw@UoBc@W_@s@[kACeA}@mAi@yBG_FoBsAUi@OsAgDkBN{BYmCTYnAG?MOaBa@}AHc@YeCA_Dg@iAO_A^_BmA}BJmAhAaCIF`@c@LcAWoCc@aAAkEo@cALkAa@cDAwAoAg@JGQFEy@O[s@[_@o@o@[}A{A}@mCDgAc@sA}BwAi@_AwAmA}Ao@q@u@aAsA[u@iDcC_DqCeCuDeBqAsAg@i@LGWsCoA}AqBaAg@wAqAoA]aDuAuA_B}BwAcA]E[cAFe@Tk@d@eAc@g@g@cBIs@[k@j@{A`@K^sAdAk@@mAb@mBEqBQuAoAi@LISCAg@FUOFRIEBJ?KwA|BeA\\aA~AYx@sAxBCZTb@Cj@k@~@W`A}BnEaA^Mn@cCrBUzAoAnB[tCe@j@Un@Fn@o@OEXRVOLFX_@lCGfBNtCEhB[r@e@nBq@fAi@`BqAnAk@vAPtAz@dBBfAfA`BXpBl@dB\\pCr@dCJhAn@jBCfCJrA\\pAE|BPdBVt@NjEKlAPtBUx@HFPbA_@hBBp@p@~@z@h@bAbD[rAcAz@MZC`CN`@ZFpBo@pBNfAt@d@rAv@TNjB|BlBHh@Sv@Hf@[r@HN|@v@J`@OlBo@lBHzAs@x@[fAs@r@b@d@XhAQhALVIxAzAnF]x@VnAWz@p@xAHr@Qd@BhAShA@nB{@vAAXQHDJOPLx@a@dBVf@ENLd@Z\\OXCpBOPw@BmAnAs@pA?\\w@rBAxAeChBQ`@{Ax@]f@m@Aw@b@y@|@uAVoAYy@HeCvCuD`CsBxB}C~AiBbDMrA]`AyAzA{@`Ds@v@gDu@OLm@Um@\\MSuAFeBU_@BMTFl@FAy@WU[g@v@JB",
+    "average_heartrate": 112.0,
+    "average_speed": 0.901,
+    "streak": 1
   }
 ];
 
