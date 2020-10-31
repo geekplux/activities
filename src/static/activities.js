@@ -904,6 +904,23 @@ const activities = [
     "average_heartrate": 171.7,
     "average_speed": 2.958,
     "streak": 1
+  },
+  {
+    "strava_id": 4264151919,
+    "athlete_id": 64654029,
+    "name": "Night Run",
+    "distance": 4572.8,
+    "moving_time": "0:25:42",
+    "elapsed_time": "0:25:42",
+    "total_elevation_gain": 0.0,
+    "type": "Run",
+    "start_date": "2020-10-30 15:21:08+00:00",
+    "start_date_local": "2020-10-30 23:21:08",
+    "location_country": "\u897f\u5340\u526f\u98df\u54c1\u6279\u767c\u5e02\u5834 Western Wholesale Food Market, 8, \u8c50\u7269\u9053 Fung Mat Road, \u897f\u534a\u5c71 Mid-Levels West, \u77f3\u5858\u5480 Shek Tong Tsui, \u4e2d\u897f\u5340 Central and Western District, \u897f\u74b0 Sai Wan, \u9999\u6e2f\u5cf6 Hong Kong Island, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "ck`gCo~rwTKQ?UMk@KqAOk@Ei@Og@QqAMe@Em@i@oCYkBJRLl@~@hG^lBL`At@`EDh@FN~@KPD?RML]VKPGl@Al@Id@[dEMbAIxANGB}ATkBBeAFUBgATmBSBGnB@VAn@M|Ae@~DBTLODkB\\{CF_AAk@Le@HaAEQIRIhABn@CT@VWjCWpBEl@@RLODkBXoB?SBSAq@`@kDQAK`DMxAKj@GbAMj@EbA@TJOBcAHwALaAP_CR{BOHIvBw@rHAVBTNMAi@Do@J_AVeEViBAWMRGvAAdAKd@SbCKl@GxADRHOB{ARkB?SDm@TwD?WKTG`Dw@dHJNJ[Ag@B[DWAk@Hi@LmBZuCBi@",
+    "average_heartrate": 169.0,
+    "average_speed": 2.965,
+    "streak": 1
   }
 ];
 
