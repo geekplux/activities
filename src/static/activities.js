@@ -921,6 +921,40 @@ const activities = [
     "average_heartrate": 169.0,
     "average_speed": 2.965,
     "streak": 1
+  },
+  {
+    "strava_id": 4272124443,
+    "athlete_id": 64654029,
+    "name": "Evening Swim",
+    "distance": 800.0,
+    "moving_time": "0:30:51",
+    "elapsed_time": "0:30:53",
+    "total_elevation_gain": 0.0,
+    "type": "Swim",
+    "start_date": "2020-11-01 11:04:36+00:00",
+    "start_date_local": "2020-11-01 19:04:36",
+    "location_country": "",
+    "summary_polyline": null,
+    "average_heartrate": 117.7,
+    "average_speed": 0.432,
+    "streak": 1
+  },
+  {
+    "strava_id": 4272124363,
+    "athlete_id": 64654029,
+    "name": "Evening Swim",
+    "distance": 3100.0,
+    "moving_time": "1:53:59",
+    "elapsed_time": "1:49:25",
+    "total_elevation_gain": 0.0,
+    "type": "Swim",
+    "start_date": "2020-11-01 11:38:49+00:00",
+    "start_date_local": "2020-11-01 19:38:49",
+    "location_country": "",
+    "summary_polyline": null,
+    "average_heartrate": 120.6,
+    "average_speed": 0.453,
+    "streak": 1
   }
 ];
 
