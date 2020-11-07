@@ -989,6 +989,23 @@ const activities = [
     "average_heartrate": 171.5,
     "average_speed": 3.065,
     "streak": 1
+  },
+  {
+    "strava_id": 4297051544,
+    "athlete_id": 64654029,
+    "name": "Night Swim",
+    "distance": 1050.0,
+    "moving_time": "0:47:16",
+    "elapsed_time": "0:47:20",
+    "total_elevation_gain": 0.0,
+    "type": "Swim",
+    "start_date": "2020-11-06 13:00:37+00:00",
+    "start_date_local": "2020-11-06 21:00:37",
+    "location_country": "",
+    "summary_polyline": null,
+    "average_heartrate": 97.1,
+    "average_speed": 0.37,
+    "streak": 2
   }
 ];
 
