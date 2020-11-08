@@ -1006,6 +1006,23 @@ const activities = [
     "average_heartrate": 97.1,
     "average_speed": 0.37,
     "streak": 2
+  },
+  {
+    "strava_id": 4302362560,
+    "athlete_id": 64654029,
+    "name": "Castle Peak - Kon Shan",
+    "distance": 13141.6,
+    "moving_time": "4:44:58",
+    "elapsed_time": "7:44:46",
+    "total_elevation_gain": 936.8,
+    "type": "Hike",
+    "start_date": "2020-11-07 02:49:30+00:00",
+    "start_date_local": "2020-11-07 10:49:30",
+    "location_country": "2, \u9752\u96f2\u8def Tsing Wun Road, \u6563\u77f3\u7063 San Shek Wan, \u5c6f\u9580\u820a\u589f Tuen Mun Kau Hui, \u9752\u5c71\u6751 Tsing Shan Tsuen, \u5c6f\u9580\u5340 Tuen Mun District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "yetgCkfrvTt@f@Af@q@nBcBBw@RATh@\\LZU|AHbBIzB}BvHQzB^jBx@h@D`CX`AbAx@Pd@pBl@HIt@T|@@PRDZOEWbB]d@s@l@_@KEh@j@|@h@RQPpAxA@|AOb@FSJHHhAs@fBBTSA?Pb@t@LIIZPF?XDGIRL]JVTYXAWt@PBENTVZ@Qb@@`@Xr@Cr@t@dB?t@LYKAAb@Ic@oAKyCl@}AEkB{@CLCe@K@DNBKKBJI]DL@SVaAe@_AFDc@i@i@YE{@`@]eAi@Lu@a@k@v@k@Lw@i@n@p@kAf@}AOe@SUFmAoAWCkD|ASKgA|@sA\\aB|@}@?YQqBXu@i@q@Fk@MeAhAy@Ac@tAQHIMGRRDG\\y@dAAj@k@`A}@JOl@c@Ze@BOGDIsABsAsAuAOYHs@e@a@BwAVkBKiD_C_BF[Mg@c@_AuB{A{@u@lDmAtC@r@JJKCL@OEFHG@Ky@^m@GKVIt@eDb@eAU_A]Og@HqAlA[p@oAn@s@|@{AFPoAo@{@_@sCq@u@DP{@PMl@c@n@qAl@y@lBJfDn@`BCh@_Af@c@lBJMMFOYsAVFQd@Nj@Qz@cBv@Yo@gC@cDh@oBrBgB[r@}@Vw@{Bw@m@FUQULAw@c@Uo@oCb@OUTJ_@]oAYGuAp@y@D]}@qB]U@WMHYq@u@CO_@FUOF?YOWUK?WQ?AOMLSs@g@d@q@Ge@TcARcAIOs@RVP`@`AVx@SAQrAOv@i@YRtB\\Z`@v@FFVb@@`ASXTl@W^s@b@FlBc@|Br@x@x@Rz@CbAJp@UTFW~@AdAn@ZlD\\v@J|@r@v@H\\g@`AB`AE[PNi@]Sk@i@Wu@XoAlASr@c@CaA|@]|@Cp@PdCh@hBKh@Hc@[_A[cDFmAd@gAfAq@dBqBd@Cb@XZbDj@jAMr@JXf@Bz@UV{@jAk@f@gA`BwAf@AdBd@lCfB[cAB]RKt@HdAcBfB]@Yg@mA?W`@i@f@oBj@}@bCaCc@u@eAo@WwAc@w@?mCQgANcAOi@@g@m@iA@s@XQtAyCSEd@OLe@fAm@DU[mA{Ab@FkACiB_BgA_@i@Gc@q@i@HmD",
+    "average_heartrate": 123.5,
+    "average_speed": 0.769,
+    "streak": 3
   }
 ];
 
