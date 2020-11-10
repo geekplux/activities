@@ -1023,6 +1023,23 @@ const activities = [
     "average_heartrate": 123.5,
     "average_speed": 0.769,
     "streak": 3
+  },
+  {
+    "strava_id": 4312665080,
+    "athlete_id": 64654029,
+    "name": "Evening Swim",
+    "distance": 1500.0,
+    "moving_time": "0:55:39",
+    "elapsed_time": "0:55:28",
+    "total_elevation_gain": 0.0,
+    "type": "Swim",
+    "start_date": "2020-11-09 12:52:53+00:00",
+    "start_date_local": "2020-11-09 20:52:53",
+    "location_country": "",
+    "summary_polyline": null,
+    "average_heartrate": 124.5,
+    "average_speed": 0.449,
+    "streak": 1
   }
 ];
 
