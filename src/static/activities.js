@@ -1108,6 +1108,23 @@ const activities = [
     "average_heartrate": 173.7,
     "average_speed": 3.72,
     "streak": 1
+  },
+  {
+    "strava_id": 4374682902,
+    "athlete_id": 64654029,
+    "name": "Afternoon Hike",
+    "distance": 11531.6,
+    "moving_time": "3:21:11",
+    "elapsed_time": "3:51:55",
+    "total_elevation_gain": 1003.9,
+    "type": "Hike",
+    "start_date": "2020-11-22 06:05:28+00:00",
+    "start_date_local": "2020-11-22 14:05:28",
+    "location_country": "\u57fa\u5229\u8def\u4f11\u61a9\u8655 Greig Road Sitting-out Area, \u57fa\u5229\u8def Greig Road, \u5eb7\u5c71 Kornhill, \u9c02\u9b5a\u6d8c Quarry Bay, \u9999\u6e2f\u5cf6 Hong Kong Island, \u6771\u5340 Eastern District, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "sl_gCwjbxTTBXM|@FFEGGHJx@@zCWjGV^HDTRDh@?rAUvA^x@p@|@PXIJi@JOnABbA_@lB[vBIJMSWHWDFIHv@Gv@Lb@XTf@?h@]h@E\\QNDNKDATUAAj@QJa@WWb@BR`@t@O~@Hx@IhBIDu@IeB[UxA}@b@iApAMX@|@KH]EMHKt@]|@k@RqAIUbAYf@J^St@HfA`@^URU~@m@b@kANsChBXPrAIt@D|@iAXGZ@j@QJQDy@LYTIt@Ca@eAE]r@o@rAg@\\JXj@d@}@Xp@Hl@lAn@P~@^V?n@TbATTH~ARn@`@WRA?m@VYb@Mf@Nf@Cd@NrANTMl@KbAf@dAMfAL^MCQ?FVSj@Ir@e@~A[rBoAXAnBJf@N`CB|@e@d@m@n@ODQpAuAdAk@f@K^_@vAe@YrA[j@Gh@o@`ACz@`@^\\p@X~AhCnBvAhBh@rCAz@Kv@?xADXTTE`@^p@h@h@Jd@|@n@f@~@M`@NLNz@TZMxCMj@@|@Wn@?|@CTV\\@^Tj@~@NV\\p@n@nAJ`@f@dAt@dAj@XFr@?r@_@hA?RJlBRzA[\\F|@h@r@Hn@m@b@Sd@u@n@i@ZOjAQh@gAVYZIr@LfAa@v@VjA|@d@J|@lBNJHMO{@@a@nAu@j@HvAx@r@FtAs@Te@XO|@UlA@`Bu@Di@n@k@t@e@n@Qt@i@tAWvBFZ\\n@T|@?ZF^Ld@K`@D`AUTQhAF`Cs@l@WbAOtANbAf@r@NX^CZV`@RPnBMzBd@r@KvBVhB`@b@TdBBxASnA@jAi@h@gAx@UT]AiAXk@@[QmA[{@C_@t@wAEs@Ty@v@aAOs@Hu@n@c@|@ObBsAL]RwAH@GLPOjC_A^k@t@a@zA]|AUCU^Tt@c@PDXOZ?DCFMhAQfCs@@CrEqBX@t@\\v@CfBQz@PvCa@z@e@^EbAXp@j@v@Nl@l@z@b@\\?VNj@CpBTh@_@`By@tAsAbCs@r@Cj@e@xAOpDARNADCGBDAED?CAD@GBCOFKl@PhBU~@c@bCY^WLWZQn@{@VCHOZGp@k@l@@VNLEB[Lb@",
+    "average_heartrate": 147.8,
+    "average_speed": 0.955,
+    "streak": 1
   }
 ];
 
