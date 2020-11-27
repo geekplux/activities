@@ -1112,7 +1112,7 @@ const activities = [
   {
     "strava_id": 4374682902,
     "athlete_id": 64654029,
-    "name": "Afternoon Hike",
+    "name": "Wilson Trail",
     "distance": 11531.6,
     "moving_time": "3:21:11",
     "elapsed_time": "3:51:55",
