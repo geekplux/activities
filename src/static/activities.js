@@ -1125,6 +1125,23 @@ const activities = [
     "average_heartrate": 147.8,
     "average_speed": 0.955,
     "streak": 1
+  },
+  {
+    "strava_id": 4402155091,
+    "athlete_id": 64654029,
+    "name": "Cycle along the Shing Mun River from Sha Tin to Tai Mei Tuk",
+    "distance": 23983.3,
+    "moving_time": "2:19:10",
+    "elapsed_time": "3:18:51",
+    "total_elevation_gain": 98.4,
+    "type": "Ride",
+    "start_date": "2020-11-28 06:22:18+00:00",
+    "start_date_local": "2020-11-28 14:22:18",
+    "location_country": "\u6392\u982d\u9910\u5ef3, \u6392\u982d\u8857 Pai Tau Street, \u6392\u982d\u6751 Pai Tau Tsuen, \u6c99\u7530 Sha Tin, \u6c99\u7530\u5340 Sha Tin District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "g_sgC{g}wT]IFYHJKC@Ns@CNBSG?]QS_BgAReBlD}E_Co@fBd@H}@}A?AUiAOwBcAsCuBFw@U[l@eAAUj@u@`@OWNrA_Bh@aACObByA?W{CkBaC}Cm@OwAqAQ_@i@OgC{CYK}@oBq@w@sAr@U`@qAb@i@rAk@F@d@LAE`@HBEnAb@bBLDQHTSg@Yq@cFeCpA{@JMp@HZk@KILPPc@i@BVZDDd@LMZZ]]Ca@TDFg@s@v@bBjAe@iBNEs@O[?s@R|@p@FW^hBJ@^g@gA]Ua@Pk@e@?sDyCe@MHMOUMTDM[BoBcBQ@uAvBgAw@Pe@k@Eu@m@Oc@{A}@{@Fu@`BuB}@w@pASnA?Ri@b@~@Vj@f@q@xCGh@dAn@`@GnB}BrB}@~C{Dv@j@fByBrC|B`AZ~DjCxCmAdB}@j@w@KGbBi@pBkB|@O~BeBVXZWiFeECY]O}AeBeBq@eAcAqAk@e@i@Ey@{WgVkAmAm@eAcO}Me@u@QNm@cAsCqCoI}HsI{H?RCQL?QGAST`@Y?u@l@iAbCmFtFyA`Ca@JwByAyFsFsB}@iH{GaBpBaAk@qAuB_@U_HDyFmBuFiAaARiFhBcCEy@YmHFBHyIn@_FjAoEvBiAsCi@cEcAmAkAn@mBNaBl@o@h@kA`@y@d@eAvAaBlAwB|Di@h@[~@mAlBgArAHt@mAdAS|@kBzA}ClFcAx@aA~B_CtCaBpCA\\]N_C~C}BxDoEdIs@Re@f@iB~CqAhF}AvAgGpIkEtHaBlEe@l@gA|HNxGjAtHZbFOtEWNEi@YTb@UK@J?K@HCLp@c@dC{CjIgDfF{CzGkAbEwBlE_K`P{EhEwBGsJr@eG[gAo@gDY_@VE|@IXoDg@{DoB_Cg@}DBoI|B}CMqGuAuAiAw@gAUaAIaBViE?eHGgBYgAkAeByHuFoBmBw@{Ac@gDIoEJgDKwAt@KCkILmBvC_Jn@{ErCeLhA}CbByB`@cB@yBmBkNa@mK[uCAe@NGi@_@{AyC{BiA_BwAi@Cq@q@c@}A}@wAsBiBqEyAmD_DkB{@iEe@}FCwCe@a@k@qCoBoNyNgFgCkA_CI{@FkAdAmCxAkBH]fGaEnAkBrA_Ej@kEWm@P}Aa@wEiAgDiAuE}Aq^q@kFOwCUWSqCs@uBUeEKPRUPxBKQE}ATM",
+    "average_heartrate": 89.8,
+    "average_speed": 2.872,
+    "streak": 1
   }
 ];
 
