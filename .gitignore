@@ -1,5 +1,6 @@
 # Project dependencies
 .cache
+*.pyc
 node_modules
 yarn-error.log
 
@@ -10,9 +11,9 @@ yarn-error.log
 .sass-cache/
 _posts/
 _site/
-db.csv
-danpalmer.sql
 
 .mypy_cache
 
-__pycache__
+/.vscode
+
+config.yaml

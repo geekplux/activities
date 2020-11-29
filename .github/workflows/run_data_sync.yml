@@ -1,6 +1,7 @@
-name: Nike Sync
+name: Run Data Sync
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
   push:
@@ -8,10 +9,23 @@ on:
       - master
     paths:
       - scripts/nike_sync.py
-      - scripts/strava.py
-      - scripts/gen_json.py
-      - scripts/data.db
+      - scripts/nike_to_strava_sync.py
+      - scripts/runtastic_sync.py
+      - scripts/strava_sync.py
+      - scripts/gen_svg.py
+      - scripts/garmin_sync.py
+      - scripts/keep_sync.py
+      - scripts/gpx_sync.py
       - requirements.txt
+
+env:
+  # please change to your own config.
+  RUN_TYPE: pass # support runtastic/strava/nike/garmin/garmin_cn/keep/only_gpx/nike_to_strava, Please change the 'pass' it to your own
+  ATHLETE: yihong0618
+  TITLE: Yihong0618 Running
+  TITLE_GRID: Over 10km Runs
+  GITHUB_NAME: yihong0618
+  GITHUB_EMAIL: zouzou0208@gmail.com
 
 jobs:
   sync:
@@ -23,7 +37,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: 3.6
 
       - name: Configure pip cache
         uses: actions/cache@v1
@@ -37,32 +51,62 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m venv venv
-          source venv/bin/activate
           pip install -r requirements.txt
         if: steps.pip-cache.outputs.cache-hit != 'true'
 
-      - name: Run sync script
+      - name: Run sync Nike script
+        if: env.RUN_TYPE == 'nike'
         run: |
-          source venv/bin/activate
-          python scripts/nike_sync.py ${{ secrets.N_TOKEN }}
+          python scripts/nike_sync.py ${{ secrets.NIKE_REFRESH_TOKEN }}
 
-      - name: Generate New gpx upload to strava
+      - name: Run sync Nike to Strava(Run with nike data backup and show with strava)
+        if: env.RUN_TYPE == 'nike_to_strava'
         run: |
-          source venv/bin/activate
-          python scripts/strava.py ${{ secrets.S_CLIENT_ID }} ${{ secrets.S_CLIENT_SECRET }} ${{ secrets.S_REFRESH_TOKEN}}
+          python scripts/nike_to_strava_sync.py ${{ secrets.NIKE_REFRESH_TOKEN }} ${{ secrets.STRAVA_CLIENT_ID }} ${{ secrets.STRAVA_CLIENT_SECRET }} ${{ secrets.STRAVA_CLIENT_REFRESH_TOKEN }}
+  
+      - name: Run sync Runtastic script
+        if: env.RUN_TYPE == 'runtastic'
+        run: |
+          python scripts/runtastic_sync.py ${{ secrets.RUNTASTIC_EMAIL }} ${{ secrets.RUNTASTIC_PASSWORD }}
 
-      - name: Generate new data files
+      - name: Run sync Keep script
+        if: env.RUN_TYPE == 'keep'
         run: |
-          source venv/bin/activate
-          python scripts/gen_json.py ${{ secrets.S_CLIENT_ID }} ${{ secrets.S_CLIENT_SECRET }} ${{ secrets.S_REFRESH_TOKEN}}
+          python scripts/keep_sync.py ${{ secrets.KEEP_MOBILE }} ${{ secrets.KEEP_PASSWORD }} --with-gpx
+
+      - name: Run sync Strava script
+        if: env.RUN_TYPE == 'strava'
+        run: |
+          python scripts/strava_sync.py ${{ secrets.STRAVA_CLIENT_ID }} ${{ secrets.STRAVA_CLIENT_SECRET }} ${{ secrets.STRAVA_CLIENT_REFRESH_TOKEN }}
+
+      - name: Run sync Garmin script
+        if: env.RUN_TYPE == 'garmin'
+        run: |
+          python scripts/garmin_sync.py ${{ secrets.GRAMIN_EMAIL }} ${{ secrets.GARMIN_PASSWORD }}
+
+      - name: Run sync Garmin CN script
+        if: env.RUN_TYPE == 'garmin_cn'
+        run: |
+          python scripts/garmin_sync.py ${{ secrets.GRAMIN_CN_EMAIL }} ${{ secrets.GARMIN_CN_PASSWORD }} --is-cn
+
+      - name: Run sync Only GPX script
+        if: env.RUN_TYPE == 'only_gpx'
+        run: |
+          python scripts/gpx_sync.py
+
+      - name: Make svg GitHub profile
+        if: env.RUN_TYPE != 'pass'
+        run: |
+          python scripts/gen_svg.py --from-db --title "${{ env.TITLE }}" --type github --athlete "${{ env.ATHLETE }}" --special-distance 10 --special-distance2 20 --special-color yellow --special-color2 red --output assets/github.svg --use-localtime --min-distance 0.5
+          python scripts/gen_svg.py --from-db --title "${{ env.TITLE_GRID }}" --type grid --athlete "${{ env.ATHLETE }}"  --output assets/grid.svg --min-distance 10.0 --special-color yellow --special-color2 red --special-distance 20 --special-distance2 40 --use-localtime
+          python scripts/gen_svg.py --from-db --type circular --use-localtime
 
       - name: Push new runs
         uses: github-actions-x/commit@v2.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Add new runs"
-          files: data/activities/ src/static/ scripts/data.db
+          files: activities src/static/ scripts/ assets/ GPX_OUT/
           rebase: 'true'
-          name: geekplux
-          email: geekplux@gmail.com
+          name: ${{ env.GITHUB_NAME }}
+          email: ${{ env.GITHUB_EMAIL }}

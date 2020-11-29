@@ -1,49 +1,27 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import * as mapboxPolyline from '@mapbox/polyline';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
-import ReactMapGL, { Source, Layer } from 'react-map-gl';
-import { ViewportProvider, useDimensions } from 'react-viewport-utils';
+import ReactMapGL, { Source, Layer, Marker } from 'react-map-gl';
 
 import Layout from '../components/layout';
 import { activities } from '../static/activities';
-import { chinaGeojson } from '../static/run_countries';
+import GitHubSvg from '../../assets/github.svg';
+import GridSvg from '../../assets/grid.svg';
+import StartSvg from '../../assets/start.svg';
+import EndSvg from '../../assets/end.svg';
+import {
+  titleForShow, formatPace, scrollToMap, locationForRun, intComma, geoJsonForRuns, geoJsonForMap,
+  titleForRun, filterAndSortRuns, sortDateFunc, sortDateFuncReverse, getBoundsForGeoData,
+} from '../utils/utils';
+import { MAPBOX_TOKEN, IS_CHINESE, INFO_MESSAGE } from '../utils/const';
 
-import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './running.module.scss';
 
-const MAPBOX_TOKEN = 'pk.eyJ1IjoieWlob25nMDYxOCIsImEiOiJja2J3M28xbG4wYzl0MzJxZm0ya2Fua2p2In0.PNKfkeQwYuyGOTT_x9BJ4Q';
-
-// const
-const municipalityCitiesArr = ['北京市', '上海市', '天津市', '重庆市', '香港特别行政区', '澳门特别行政区'];
-const HK_STRAT_POINT = [22.280079775369572, 114.1810190268555];
 const cities = {};
+const runPeriod = {};
 let provinces = [];
 let countries = [];
 let yearsArr = [];
-
-const locationForRun = (run) => {
-  const location = run.location_country;
-  let [city, province, country] = ['', '', ''];
-  if (location) {
-    const l = location.split(',');
-    const cityMatch = location.match(/[\u4e00-\u9fa5]*市/);
-    const provinceMatch = l[l.length - 2];
-    city = cityMatch ? cityMatch : provinceMatch;
-    if (provinceMatch) {
-      [province] = provinceMatch;
-    }
-    const countryMatch = l[l.length - 1];
-    if (countryMatch) {
-      [country] = countryMatch;
-    }
-  }
-  if (municipalityCitiesArr.includes(city)) {
-    province = city;
-  }
-
-  return { country, province, city };
-};
 
 // generate base attr
 ((runs) => {
@@ -51,6 +29,10 @@ const locationForRun = (run) => {
   runs.forEach(
     (run) => {
       const location = locationForRun(run);
+      const periodName = titleForRun(run);
+      if (periodName) {
+        runPeriod[periodName] = runPeriod[periodName] === undefined ? 1 : runPeriod[periodName] + 1;
+      }
       locationsList.push(location);
       const { city, province, country } = location;
       // drop only one char city
@@ -71,57 +53,138 @@ const locationForRun = (run) => {
   provinces = [...new Set(provinces)];
   countries = [...new Set(countries)];
 })(activities);
+const totalActivitiesLength = activities.length;
+
+let thisYear = '';
+if (yearsArr) {
+  [thisYear] = yearsArr;
+}
+
+// Hooks
+const useHover = () => {
+  const [hovered, setHovered] = useState();
+  const [timer, setTimer] = useState();
+
+  const eventHandlers = {
+    onMouseOver() { setTimer(setTimeout(() => setHovered(true), 700)); },
+    onMouseOut() { clearTimeout(timer); setHovered(false); },
+  };
+
+  return [hovered, eventHandlers];
+};
 
 // Page
 export default () => {
-  const [year, setYear] = useState('2020');
-  let onStartPoint = HK_STRAT_POINT;
-  const [runs, setActivity] = useState(activities);
+  const [year, setYear] = useState(thisYear);
+  const [runs, setActivity] = useState(filterAndSortRuns(activities, year, sortDateFunc));
   const [title, setTitle] = useState('');
+  const [geoData, setGeoData] = useState(
+    geoJsonForRuns(runs),
+  );
+  // for auto zoom
+  const bounds = getBoundsForGeoData(geoData, totalActivitiesLength);
+  const [intervalId, setIntervalId] = useState();
+
   const [viewport, setViewport] = useState({
     width: '100%',
     height: 400,
-    latitude: onStartPoint[0],
-    longitude: onStartPoint[1],
-    zoom: 11.5,
+    ...bounds,
   });
-  const changeYear = (year) => {
-    setYear(year);
+  const changeYear = (y) => {
+    setYear(y);
     scrollToMap();
-    setActivity(activities);
+    setActivity(filterAndSortRuns(activities, y, sortDateFunc));
     if (viewport.zoom > 3) {
       setViewport({
         width: '100%',
         height: 400,
-        latitude: onStartPoint[0],
-        longitude: onStartPoint[1],
-        zoom: 11.5,
+        ...bounds,
       });
     }
-    setTitle(`${year} Activities Heatmap`);
+    setTitle(`${y} Running Heatmap`);
+    clearInterval(intervalId);
   };
 
   const locateActivity = (run) => {
-    // TODO maybe filter some activities in the future
-    setActivity([run]);
-    let startPoint;
-    const geoData = geoJsonForRuns([run], run.start_date_local.slice(0, 4));
-    const { coordinates } = geoData.features[0].geometry;
-    if (coordinates.length === 0) {
-      startPoint = HK_STRAT_POINT.reverse();
-    } else {
-      startPoint = coordinates[Math.floor(coordinates.length / 2)];
-    }
+    setGeoData(geoJsonForRuns([run]));
+    setTitle(titleForShow(run));
+    clearInterval(intervalId);
+    scrollToMap();
+  };
+
+  useEffect(() => {
     setViewport({
       width: '100%',
       height: 400,
-      latitude: startPoint[1],
-      longitude: startPoint[0],
-      zoom: 14.5,
+      ...bounds,
     });
-    scrollToMap();
-    setTitle(titleForShow(run));
-  };
+  }, [geoData]);
+
+  useEffect(() => {
+    const runsNum = runs.length;
+    // maybe change 20 ?
+    const sliceNume = runsNum >= 20 ? runsNum / 20 : 1;
+    let i = sliceNume;
+    const id = setInterval(() => {
+      if (i >= runsNum) {
+        clearInterval(id);
+      }
+      const tempRuns = runs.slice(0, i);
+      setGeoData(geoJsonForRuns(tempRuns));
+      i += sliceNume;
+    }, 100);
+    setIntervalId(id);
+  }, [year]);
+
+  // TODO refactor
+  useEffect(() => {
+    if (year !== 'Total') {
+      return;
+    }
+    let rectArr = document.querySelectorAll('rect');
+    if (rectArr.length !== 0) {
+      rectArr = Array.from(rectArr).slice(1);
+    }
+
+    rectArr.forEach((rect) => {
+      const rectColor = rect.getAttribute('fill');
+      // not run has no click event
+      if (rectColor !== '#444444') {
+        const runDate = rect.innerHTML;
+        // ingnore the error
+        const [runName] = runDate.match(/\d{4}-\d{1,2}-\d{1,2}/) || [];
+        const runLocate = runs.filter(
+          (r) => r.start_date_local.slice(0, 10) === runName,
+        ).sort((a, b) => b.distance - a.distance)[0];
+
+        // do not add the event next time
+        // maybe a better way?
+        if (runLocate) {
+          rect.addEventListener('click', () => locateActivity(runLocate), false);
+        }
+      }
+    });
+    let polylineArr = document.querySelectorAll('polyline');
+    if (polylineArr.length !== 0) {
+      polylineArr = Array.from(polylineArr).slice(1);
+    }
+    // add picked runs svg event
+    polylineArr.forEach((polyline) => {
+      // not run has no click event
+      const runDate = polyline.innerHTML;
+      // `${+thisYear + 1}` ==> 2021
+      const [runName] = runDate.match(/\d{4}-\d{1,2}-\d{1,2}/) || [`${+thisYear + 1}`];
+      const run = runs.filter(
+        (r) => r.start_date_local.slice(0, 10) === runName,
+      ).sort((a, b) => b.distance - a.distance)[0];
+
+      // do not add the event next time
+      // maybe a better way?
+      if (run) {
+        polyline.addEventListener('click', () => locateActivity(run), false);
+      }
+    });
+  }, [year]);
 
   return (
     <>
@@ -129,34 +192,28 @@ export default () => {
       <Layout>
         <div className="mb5">
           <div className="w-100">
-            <h1 className="f1 fw9 i">Activities</h1>
+            <h1 className="f1 fw9 i">Running</h1>
           </div>
-          {viewport.zoom <= 3 ? <LocationStat runs={activities} location="a" onClick={changeYear} /> : <YearsStat runs={activities} year={year} onClick={changeYear} />}
+          {viewport.zoom <= 3 && IS_CHINESE ? <LocationStat runs={activities} location="a" onClick={changeYear} /> : <YearsStat runs={activities} year={year} onClick={changeYear} />}
           <div className="fl w-100 w-70-l">
-            {runs.length === 1 ? (
-              <RunMapWithViewport
-                runs={runs}
-                year={year}
-                title={title}
-                viewport={viewport}
-                setViewport={setViewport}
-                changeYear={changeYear}
-              />
-            ) : (
-              <RunMapWithViewport
-                runs={activities}
-                year={year}
-                title={title}
-                viewport={viewport}
-                setViewport={setViewport}
-                changeYear={changeYear}
-              />
-            )}
-            <RunTable
-              runs={activities}
+            <RunMap
+              runs={runs}
               year={year}
-              locateActivity={locateActivity}
+              title={title}
+              viewport={viewport}
+              geoData={geoData}
+              setViewport={setViewport}
+              changeYear={changeYear}
             />
+            {year === 'Total' ? <SVGStat />
+              : (
+                <RunTable
+                  runs={runs}
+                  year={year}
+                  locateActivity={locateActivity}
+                  setActivity={setActivity}
+                />
+              )}
           </div>
         </div>
       </Layout>
@@ -164,8 +221,14 @@ export default () => {
   );
 };
 
-// Child components
+const SVGStat = () => (
+  <div>
+    <GitHubSvg className={styles.runSVG} />
+    <GridSvg className={styles.runSVG} />
+  </div>
+);
 
+// Child components
 const YearsStat = ({ runs, year, onClick }) => {
   // make sure the year click on front
   let yearsArrayUpdate = yearsArr.slice();
@@ -176,13 +239,9 @@ const YearsStat = ({ runs, year, onClick }) => {
   return (
     <div className="fl w-100 w-30-l pb5 pr5-l">
       <section className="pb4" style={{ paddingBottom: '0rem' }}>
-        <p style={{ marginTop: 0 }}>
-          展示我自己运动的一些数据。样式和数据处理方式参考 {" "}
-          <a className="light-gray b" href="https://yihong.run/running/">
-            Yihong's Blog
-          </a>
-          <br></br>
-          （目前还是初始版本，之后会逐渐迭代）
+        <p>
+          {INFO_MESSAGE(yearsArr.length, year)}
+          <br />
         </p>
       </section>
       <hr color="red" />
@@ -194,7 +253,7 @@ const YearsStat = ({ runs, year, onClick }) => {
   );
 };
 
-const LocationStat = ({ runs, location, onClick }) => (
+const LocationStat = ({ runs, onClick }) => (
   <div className="fl w-100 w-30-l pb5 pr5-l">
     <section className="pb4" style={{ paddingBottom: '0rem' }}>
       <p>
@@ -209,11 +268,18 @@ const LocationStat = ({ runs, location, onClick }) => (
     <hr color="red" />
     <LocationSummary key="locationsSummary" />
     <CitiesStat />
+    <PeriodStat />
     <YearStat key="Total" runs={runs} year="Total" onClick={onClick} />
   </div>
 );
 
 const YearStat = ({ runs, year, onClick }) => {
+  // for hover
+  const [hovered, eventHandlers] = useHover();
+  // lazy Component
+  const YearSVG = React.lazy(() => import(`../../assets/year_${year}.svg`)
+    .catch(() => ({ default: () => <div /> })));
+
   if (yearsArr.includes(year)) {
     runs = runs.filter((run) => run.start_date_local.slice(0, 4) === year);
   }
@@ -225,7 +291,7 @@ const YearStat = ({ runs, year, onClick }) => {
   let heartRateNullCount = 0;
   runs.forEach((run) => {
     sumDistance += run.distance || 0;
-    if (run.average_speed && run.type === 'Run') {
+    if (run.average_speed) {
       pace += run.average_speed;
     } else {
       paceNullCount++;
@@ -246,10 +312,10 @@ const YearStat = ({ runs, year, onClick }) => {
     0,
   );
   return (
-    <div style={{ cursor: 'pointer' }} onClick={() => onClick(year)}>
+    <div style={{ cursor: 'pointer' }} onClick={() => onClick(year)} {...eventHandlers}>
       <section>
-        <Stat value={year} description=" Activities" />
-        <Stat value={runs.length} description=" Workouts" />
+        <Stat value={year} description=" Journey" />
+        <Stat value={runs.length} description=" Runs" />
         <Stat value={sumDistance} description=" KM" />
         <Stat value={avgPace} description=" Avg Pace" />
         <Stat
@@ -261,11 +327,13 @@ const YearStat = ({ runs, year, onClick }) => {
           <Stat value={avgHeartRate} description=" Avg Heart Rate" />
         )}
       </section>
+      {hovered && <React.Suspense fallback="loading..."><YearSVG className={styles.yearSVG} /></React.Suspense>}
       <hr color="red" />
     </div>
   );
 };
 
+// only support China for now
 const LocationSummary = () => (
   <div style={{ cursor: 'pointer' }}>
     <section>
@@ -278,6 +346,7 @@ const LocationSummary = () => (
   </div>
 );
 
+// only support China for now
 const CitiesStat = () => {
   const citiesArr = Object.entries(cities);
   citiesArr.sort((a, b) => b[1] - a[1]);
@@ -285,7 +354,22 @@ const CitiesStat = () => {
     <div style={{ cursor: 'pointer' }}>
       <section>
         {citiesArr.map(([city, distance]) => (
-          <Stat value={city} description={` ${(distance / 1000).toFixed(0)} KM`} citySize={3} />
+          <Stat key={city} value={city} description={` ${(distance / 1000).toFixed(0)} KM`} citySize={3} />
+        ))}
+      </section>
+      <hr color="red" />
+    </div>
+  );
+};
+
+const PeriodStat = () => {
+  const periodArr = Object.entries(runPeriod);
+  periodArr.sort((a, b) => b[1] - a[1]);
+  return (
+    <div style={{ cursor: 'pointer' }}>
+      <section>
+        {periodArr.map(([period, times]) => (
+          <Stat key={period} value={period} description={` ${times} Runs`} citySize={3} />
         ))}
       </section>
       <hr color="red" />
@@ -294,15 +378,12 @@ const CitiesStat = () => {
 };
 
 const RunMap = ({
-  runs, year, title, viewport, setViewport, changeYear,
+  title, viewport, setViewport, changeYear, geoData,
 }) => {
-  year = year || '2020';
-  let geoData = geoJsonForRuns(runs, year);
-
-  const [lastWidth, setLastWidth] = useState(0);
   const addControlHandler = (event) => {
     const map = event && event.target;
-    if (map) {
+    // set lauguage to Chinese if you use English please comment it
+    if (map && IS_CHINESE) {
       map.addControl(
         new MapboxLanguage({
           defaultLanguage: 'zh',
@@ -315,21 +396,23 @@ const RunMap = ({
     }
   };
   const filterProvinces = provinces.slice();
+  // for geojson format
   filterProvinces.unshift('in', 'name');
 
-  const dimensions = useDimensions({
-    deferUpdateUntilIdle: true,
-    disableScrollUpdates: true,
-  });
-  if (lastWidth !== dimensions.width) {
-    setTimeout(() => {
-      setViewport({ width: '100%', ...viewport });
-      setLastWidth(dimensions.width);
-    }, 0);
-  }
   const isBigMap = (viewport.zoom <= 3);
-  if (isBigMap) {
+  if (isBigMap && IS_CHINESE) {
     geoData = geoJsonForMap();
+  }
+
+  const isSingleRun = geoData.features.length === 1 && geoData.features[0].geometry.coordinates.length;
+  let startLon; let
+    startLat;
+  let endLon; let
+    endLat;
+  if (isSingleRun) {
+    const points = geoData.features[0].geometry.coordinates;
+    [startLon, startLat] = points[0];
+    [endLon, endLat] = points[points.length - 1];
   }
 
   return (
@@ -342,7 +425,14 @@ const RunMap = ({
     >
       <RunMapButtons changeYear={changeYear} />
       <Source id="data" type="geojson" data={geoData}>
-
+        <Layer
+          id="prvince"
+          type="fill"
+          paint={{
+            'fill-color': '#47b8e0',
+          }}
+          filter={filterProvinces}
+        />
         <Layer
           id="runs2"
           type="line"
@@ -355,43 +445,55 @@ const RunMap = ({
             'line-cap': 'round',
           }}
         />
-        <Layer
-          id="prvince"
-          type="fill"
-          paint={{
-            'fill-color': '#47b8e0',
-          }}
-          filter={filterProvinces}
-        />
       </Source>
+      {isSingleRun
+      && <RunMarker startLat={startLat} startLon={startLon} endLat={endLat} endLon={endLon} /> }
       <span className={styles.runTitle}>{title}</span>
     </ReactMapGL>
   );
 };
 
-const RunMapWithViewport = (props) => (
-  <ViewportProvider>
-    <RunMap {...props} />
-  </ViewportProvider>
-);
+const RunMarker = ({
+  startLon, startLat, endLon, endLat,
+}) => {
+  const size = 20;
+  return (
+    <div>
+      <Marker key="maker_start" longitude={startLon} latitude={startLat}>
+        <div style={{ transform: `translate(${-size / 2}px,${-size}px)` }}>
+          <StartSvg className={styles.locationSVG} />
+        </div>
+      </Marker>
+      <Marker key="maker_end" longitude={endLon} latitude={endLat}>
+        <div style={{ transform: `translate(${-size / 2}px,${-size}px)` }}>
+          <EndSvg className={styles.locationSVG} />
+        </div>
+      </Marker>
+    </div>
+  );
+};
 
 const RunMapButtons = ({ changeYear }) => {
+  const yearsButtons = yearsArr.slice();
+  yearsButtons.push('Total');
   const [index, setIndex] = useState(0);
   const handleClick = (e, year) => {
-    const elementIndex = yearsArr.indexOf(year);
+    const elementIndex = yearsButtons.indexOf(year);
     e.target.style.color = 'rgb(224,237,94)';
 
     const elements = document.getElementsByClassName(styles.button);
-    elements[index].style.color = 'white';
+    if (index !== elementIndex) {
+      elements[index].style.color = 'white';
+    }
     setIndex(elementIndex);
   };
   return (
     <div>
       <ul className={styles.buttons}>
-        {yearsArr.map((year) => (
+        {yearsButtons.map((year) => (
           <li
             key={`${year}button`}
-            style={{ color: year === '2020' ? 'rgb(224,237,94)' : 'white' }}
+            style={{ color: year === thisYear ? 'rgb(224,237,94)' : 'white' }}
             year={year}
             onClick={(e) => {
               changeYear(year);
@@ -407,24 +509,46 @@ const RunMapButtons = ({ changeYear }) => {
   );
 };
 
-const RunTable = ({ runs, year, locateActivity }) => {
+const RunTable = ({
+  runs, year, locateActivity, setActivity,
+}) => {
   const [runIndex, setRunIndex] = useState(-1);
-  if (!yearsArr.includes(year)) {
-    // When total show 2020
-    year = '2020';
-  }
-  runs = runs.filter((run) => run.start_date_local.slice(0, 4) === year);
-  runs = runs.sort((a, b) => (new Date(b.start_date_local)).getTime() - (new Date(a.start_date_local).getTime()));
+  const [sortFuncInfo, setSortFuncInfo] = useState('');
+  // TODO refactor?
+  const sortKMFunc = (a, b) => (sortFuncInfo === 'KM' ? a.distance - b.distance : b.distance - a.distance);
+  const sortPaceFunc = (a, b) => (sortFuncInfo === 'Pace' ? a.average_speed - b.average_speed : b.average_speed - a.average_speed);
+  const sortBPMFunc = (a, b) => (sortFuncInfo === 'BPM' ? a.average_heartrate - b.average_heartrate : b.average_heartrate - a.average_heartrate);
+  const sortDateFuncClick = sortFuncInfo === 'Date' ? sortDateFunc : sortDateFuncReverse;
+  const sortFuncMap = new Map([
+    ['KM', sortKMFunc],
+    ['Pace', sortPaceFunc],
+    ['BPM', sortBPMFunc],
+    ['Date', sortDateFuncClick],
+  ]);
+  const handleClick = (e) => {
+    const funcName = e.target.innerHTML;
+    if (sortFuncInfo === funcName) {
+      setSortFuncInfo('');
+    } else {
+      setSortFuncInfo(funcName);
+    }
+    const f = sortFuncMap.get(e.target.innerHTML);
+    if (runIndex !== -1) {
+      const el = document.getElementsByClassName(styles.runRow);
+      el[runIndex].style.color = 'rgb(224,237,94)';
+    }
+    setActivity(filterAndSortRuns(runs, year, f));
+  };
+
   return (
     <div className={styles.tableContainer}>
       <table className={styles.runTable} cellSpacing="0" cellPadding="0">
         <thead>
           <tr>
             <th />
-            <th>KM</th>
-            <th>Pace</th>
-            <th>BPM</th>
-            <th />
+            {Array.from(sortFuncMap.keys()).map((k) => (
+              <th onClick={(e) => handleClick(e)}>{k}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
@@ -432,7 +556,7 @@ const RunTable = ({ runs, year, locateActivity }) => {
             <RunRow
               runs={runs}
               run={run}
-              key={run.strava_id}
+              key={run.run_id}
               locateActivity={locateActivity}
               runIndex={runIndex}
               setRunIndex={setRunIndex}
@@ -460,7 +584,7 @@ const RunRow = ({
     e.target.parentElement.style.color = 'red';
 
     const elements = document.getElementsByClassName(styles.runRow);
-    if (runIndex !== -1) {
+    if (runIndex !== -1 && elementIndex !== runIndex) {
       elements[runIndex].style.color = 'rgb(224,237,94)';
     }
     setRunIndex(elementIndex);
@@ -492,81 +616,3 @@ const Stat = ({
     <span className="f3 fw6 i">{description}</span>
   </div>
 );
-
-// Utilities
-const intComma = (x) => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-const pathForRun = (run) => {
-  try {
-    const c = mapboxPolyline.decode(run.summary_polyline);
-    // reverse lat long for mapbox
-    c.forEach((arr) => {
-      [arr[0], arr[1]] = [arr[1], arr[0]];
-    });
-    return c;
-  } catch (err) {
-    return [];
-  }
-};
-
-const geoJsonForRuns = (runs, year) => {
-  if (runs.length > 1 && yearsArr.includes(year)) {
-    runs = runs.filter((run) => run.start_date_local.slice(0, 4) === year);
-  }
-  return {
-    type: 'FeatureCollection',
-    features: runs.map((run) => {
-      const points = pathForRun(run);
-      if (!points) {
-        return null;
-      }
-
-      return {
-        type: 'Feature',
-        geometry: {
-          type: 'LineString',
-          coordinates: points,
-        },
-      };
-    }),
-  };
-};
-
-const geoJsonForMap = () => chinaGeojson;
-
-const titleForRun = (run) => {
-  if (run.name.slice(0, 7) === 'Running') {
-    return 'Run';
-  }
-  if (run.name) {
-    return run.name;
-  }
-  return 'Run';
-};
-
-const titleForShow = (run) => {
-  const date = run.start_date_local.slice(0, 11);
-  const distance = (run.distance / 1000.0).toFixed(1);
-  let name = 'Run';
-  if (run.name.slice(0, 7) === 'Running') {
-    name = 'run';
-  }
-  if (run.name) {
-    name = run.name;
-  }
-  return `${name} ${date} ${distance} KM`;
-};
-
-const formatPace = (d) => {
-  const pace = (1000.0 / 60.0) * (1.0 / d);
-  const minutes = Math.floor(pace);
-  const seconds = Math.floor((pace - minutes) * 60.0);
-  return `${minutes}:${seconds.toFixed(0).toString().padStart(2, '0')}`;
-};
-
-// for scroll to the map
-const scrollToMap = () => {
-  const el = document.querySelector('.fl.w-100.w-70-l');
-  const rect = el.getBoundingClientRect();
-  window.scroll(rect.left + window.scrollX, rect.top + window.scrollY);
-};

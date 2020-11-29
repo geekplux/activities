@@ -32,6 +32,31 @@ $dark: rgb(26, 26, 26);
   }
 }
 
+
+.runSVG {
+  height: 250%;
+  // width: 100%;
+  width: 100%;
+  min-width: 700px;
+  margin: 1rem 0 0;
+}
+
+.locationSVG {
+  height: 100%;
+  width:  100%;
+  margin: 1rem 0 0;
+  border: 0;
+  padding: 0;
+}
+
+.yearSVG {
+  height: 65%;
+  width:  65%;
+  margin: 1rem 0 0;
+  border: 0;
+  padding: 0;
+}
+
 .runRow {
   td {
     padding: 0.5rem;
@@ -50,6 +75,7 @@ $dark: rgb(26, 26, 26);
 
 .tableContainer {
   width: 100%;
+  overflow-x: scroll;
 }
 
 .runDate {
@@ -65,7 +91,7 @@ $dark: rgb(26, 26, 26);
   display: inline-block;
   position: relative;
   cursor: pointer;
-  width: 11%;
+  width: 10%;
   padding: 10px;
   margin-top: 1px;
   font-size: 10px;
