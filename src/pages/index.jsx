@@ -17,6 +17,13 @@ import { MAPBOX_TOKEN, IS_CHINESE, INFO_MESSAGE } from '../utils/const';
 
 import styles from './running.module.scss';
 
+const baseColor = 'rgb(224,237,94)';
+const lighterYellow = 'rgba(224,237,94, 0.6)';
+const lighterBlue = 'rgba(44,127,184, 0.6)';
+// const colors = {
+//   'run':
+// }
+
 const cities = {};
 const runPeriod = {};
 let provinces = [];
@@ -53,7 +60,7 @@ let yearsArr = [];
   provinces = [...new Set(provinces)];
   countries = [...new Set(countries)];
 })(activities);
-const totalActivitiesLength = activities.length;
+// const totalActivitiesLength = activities.length;
 
 let thisYear = '';
 if (yearsArr) {
@@ -253,25 +260,25 @@ const YearsStat = ({ runs, year, onClick }) => {
   );
 };
 
-const LocationStat = ({ runs, onClick }) => (
-  <div className="fl w-100 w-30-l pb5 pr5-l">
-    <section className="pb4" style={{ paddingBottom: '0rem' }}>
-      <p>
-        我跑过了一些地方，希望随着时间的推移，地图点亮的地方越来越多.
-        <br />
-        不要停下来，不要停下奔跑的脚步.
-        <br />
-        <br />
-        Yesterday you said tomorrow.
-      </p>
-    </section>
-    <hr color="red" />
-    <LocationSummary key="locationsSummary" />
-    <CitiesStat />
-    <PeriodStat />
-    <YearStat key="Total" runs={runs} year="Total" onClick={onClick} />
-  </div>
-);
+// const LocationStat = ({ runs, onClick }) => (
+//   <div className="fl w-100 w-30-l pb5 pr5-l">
+//     <section className="pb4" style={{ paddingBottom: '0rem' }}>
+//       <p>
+//         我跑过了一些地方，希望随着时间的推移，地图点亮的地方越来越多.
+//         <br />
+//         不要停下来，不要停下奔跑的脚步.
+//         <br />
+//         <br />
+//         Yesterday you said tomorrow.
+//       </p>
+//     </section>
+//     <hr color="red" />
+//     <LocationSummary key="locationsSummary" />
+//     <CitiesStat />
+//     <PeriodStat />
+//     <YearStat key="Total" runs={runs} year="Total" onClick={onClick} />
+//   </div>
+// );
 
 const YearStat = ({ runs, year, onClick }) => {
   // for hover
@@ -333,53 +340,54 @@ const YearStat = ({ runs, year, onClick }) => {
   );
 };
 
-// only support China for now
-const LocationSummary = () => (
-  <div style={{ cursor: 'pointer' }}>
-    <section>
-      <Stat value={`${yearsArr.length}`} description=" 年里我跑过" />
-      <Stat value={countries.length} description=" 个国家" />
-      <Stat value={provinces.length} description=" 个省份" />
-      <Stat value={Object.keys(cities).length} description=" 个城市" />
-    </section>
-    <hr color="red" />
-  </div>
-);
+// // only support China for now
+// const LocationSummary = () => (
+//   <div style={{ cursor: 'pointer' }}>
+//     <section>
+//       <Stat value={`${yearsArr.length}`} description=" 年里我跑过" />
+//       <Stat value={countries.length} description=" 个国家" />
+//       <Stat value={provinces.length} description=" 个省份" />
+//       <Stat value={Object.keys(cities).length} description=" 个城市" />
+//     </section>
+//     <hr color="red" />
+//   </div>
+// );
 
-// only support China for now
-const CitiesStat = () => {
-  const citiesArr = Object.entries(cities);
-  citiesArr.sort((a, b) => b[1] - a[1]);
-  return (
-    <div style={{ cursor: 'pointer' }}>
-      <section>
-        {citiesArr.map(([city, distance]) => (
-          <Stat key={city} value={city} description={` ${(distance / 1000).toFixed(0)} KM`} citySize={3} />
-        ))}
-      </section>
-      <hr color="red" />
-    </div>
-  );
-};
+// // only support China for now
+// const CitiesStat = () => {
+//   const citiesArr = Object.entries(cities);
+//   citiesArr.sort((a, b) => b[1] - a[1]);
+//   return (
+//     <div style={{ cursor: 'pointer' }}>
+//       <section>
+//         {citiesArr.map(([city, distance]) => (
+//           <Stat key={city} value={city} description={` ${(distance / 1000).toFixed(0)} KM`} citySize={3} />
+//         ))}
+//       </section>
+//       <hr color="red" />
+//     </div>
+//   );
+// };
 
-const PeriodStat = () => {
-  const periodArr = Object.entries(runPeriod);
-  periodArr.sort((a, b) => b[1] - a[1]);
-  return (
-    <div style={{ cursor: 'pointer' }}>
-      <section>
-        {periodArr.map(([period, times]) => (
-          <Stat key={period} value={period} description={` ${times} Runs`} citySize={3} />
-        ))}
-      </section>
-      <hr color="red" />
-    </div>
-  );
-};
+// const PeriodStat = () => {
+//   const periodArr = Object.entries(runPeriod);
+//   periodArr.sort((a, b) => b[1] - a[1]);
+//   return (
+//     <div style={{ cursor: 'pointer' }}>
+//       <section>
+//         {periodArr.map(([period, times]) => (
+//           <Stat key={period} value={period} description={` ${times} Runs`} citySize={3} />
+//         ))}
+//       </section>
+//       <hr color="red" />
+//     </div>
+//   );
+// };
 
 const RunMap = ({
-  title, viewport, setViewport, changeYear, geoData,
+  title, viewport, setViewport, changeYear, geoData, runs
 }) => {
+  console.log(runs, geoData)
   const addControlHandler = (event) => {
     const map = event && event.target;
     // set lauguage to Chinese if you use English please comment it
@@ -437,7 +445,7 @@ const RunMap = ({
           id="runs2"
           type="line"
           paint={{
-            'line-color': 'rgba(224,237,94, 0.7)',
+            'line-color': lighterYellow,
             'line-width': isBigMap ? 1 : 2,
           }}
           layout={{
@@ -479,7 +487,7 @@ const RunMapButtons = ({ changeYear }) => {
   const [index, setIndex] = useState(0);
   const handleClick = (e, year) => {
     const elementIndex = yearsButtons.indexOf(year);
-    e.target.style.color = 'rgb(224,237,94)';
+    e.target.style.color = baseColor;
 
     const elements = document.getElementsByClassName(styles.button);
     if (index !== elementIndex) {
@@ -493,7 +501,7 @@ const RunMapButtons = ({ changeYear }) => {
         {yearsButtons.map((year) => (
           <li
             key={`${year}button`}
-            style={{ color: year === thisYear ? 'rgb(224,237,94)' : 'white' }}
+            style={{ color: year === thisYear ? baseColor : 'white' }}
             year={year}
             onClick={(e) => {
               changeYear(year);
@@ -535,7 +543,7 @@ const RunTable = ({
     const f = sortFuncMap.get(e.target.innerHTML);
     if (runIndex !== -1) {
       const el = document.getElementsByClassName(styles.runRow);
-      el[runIndex].style.color = 'rgb(224,237,94)';
+      el[runIndex].style.color = baseColor;
     }
     setActivity(filterAndSortRuns(runs, year, f));
   };
@@ -585,7 +593,7 @@ const RunRow = ({
 
     const elements = document.getElementsByClassName(styles.runRow);
     if (runIndex !== -1 && elementIndex !== runIndex) {
-      elements[runIndex].style.color = 'rgb(224,237,94)';
+      elements[runIndex].style.color = baseColor;
     }
     setRunIndex(elementIndex);
   };
