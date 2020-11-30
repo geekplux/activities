@@ -77,6 +77,14 @@ const pathForRun = (run) => {
   }
 };
 
+const lighterYellow = 'rgba(255, 255, 0, 0.6)';
+const lighterBlue = 'rgba(51,201,235, 0.7)';
+const lighterGreen = 'rgba(224,237,94, 0.7)';
+const colors = {
+  'Run': lighterYellow,
+  'Ride': lighterBlue,
+  'Hike': lighterGreen,
+}
 const geoJsonForRuns = (runs) => ({
   type: 'FeatureCollection',
   features: runs.map((run) => {
@@ -87,6 +95,9 @@ const geoJsonForRuns = (runs) => ({
 
     return {
       type: 'Feature',
+      properties: {
+        color: colors[run.type]
+      },
       geometry: {
         type: 'LineString',
         coordinates: points,

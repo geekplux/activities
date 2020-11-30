@@ -18,11 +18,6 @@ import { MAPBOX_TOKEN, IS_CHINESE, INFO_MESSAGE } from '../utils/const';
 import styles from './running.module.scss';
 
 const baseColor = 'rgb(224,237,94)';
-const lighterYellow = 'rgba(224,237,94, 0.6)';
-const lighterBlue = 'rgba(44,127,184, 0.6)';
-// const colors = {
-//   'run':
-// }
 
 const cities = {};
 const runPeriod = {};
@@ -387,22 +382,21 @@ const YearStat = ({ runs, year, onClick }) => {
 const RunMap = ({
   title, viewport, setViewport, changeYear, geoData, runs
 }) => {
-  console.log(runs, geoData)
-  const addControlHandler = (event) => {
-    const map = event && event.target;
-    // set lauguage to Chinese if you use English please comment it
-    if (map && IS_CHINESE) {
-      map.addControl(
-        new MapboxLanguage({
-          defaultLanguage: 'zh',
-        }),
-      );
-      map.setLayoutProperty('country-label-lg', 'text-field', [
-        'get',
-        'name_zh',
-      ]);
-    }
-  };
+  // const addControlHandler = (event) => {
+  //   const map = event && event.target;
+  //   // set lauguage to Chinese if you use English please comment it
+  //   if (map && IS_CHINESE) {
+  //     map.addControl(
+  //       new MapboxLanguage({
+  //         defaultLanguage: 'zh',
+  //       }),
+  //     );
+  //     map.setLayoutProperty('country-label-lg', 'text-field', [
+  //       'get',
+  //       'name_zh',
+  //     ]);
+  //   }
+  // };
   const filterProvinces = provinces.slice();
   // for geojson format
   filterProvinces.unshift('in', 'name');
@@ -428,7 +422,7 @@ const RunMap = ({
       {...viewport}
       mapStyle="mapbox://styles/mapbox/dark-v9"
       onViewportChange={setViewport}
-      onLoad={addControlHandler}
+      // onLoad={addControlHandler}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     >
       <RunMapButtons changeYear={changeYear} />
@@ -445,7 +439,7 @@ const RunMap = ({
           id="runs2"
           type="line"
           paint={{
-            'line-color': lighterYellow,
+            'line-color': ['get', 'color'],
             'line-width': isBigMap ? 1 : 2,
           }}
           layout={{
