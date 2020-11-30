@@ -82,7 +82,7 @@ export default () => {
     geoJsonForRuns(runs),
   );
   // for auto zoom
-  const bounds = getBoundsForGeoData(geoData, totalActivitiesLength);
+  const bounds = getBoundsForGeoData(geoData);
   const [intervalId, setIntervalId] = useState();
 
   const [viewport, setViewport] = useState({
@@ -194,7 +194,7 @@ export default () => {
           <div className="w-100">
             <h1 className="f1 fw9 i">Running</h1>
           </div>
-          {viewport.zoom <= 3 && IS_CHINESE ? <LocationStat runs={activities} location="a" onClick={changeYear} /> : <YearsStat runs={activities} year={year} onClick={changeYear} />}
+          <YearsStat runs={activities} year={year} onClick={changeYear} />
           <div className="fl w-100 w-70-l">
             <RunMap
               runs={runs}
@@ -437,7 +437,7 @@ const RunMap = ({
           id="runs2"
           type="line"
           paint={{
-            'line-color': 'rgb(224,237,94)',
+            'line-color': 'rgba(224,237,94, 0.7)',
             'line-width': isBigMap ? 1 : 2,
           }}
           layout={{
@@ -599,7 +599,7 @@ const RunRow = ({
         locateActivity(run);
       }}
     >
-      <td>{titleForRun(run)}</td>
+      <td>{run && run.name}</td>
       <td>{distance}</td>
       {pace && <td>{paceParts}</td>}
       <td>{heartRate && heartRate.toFixed(0)}</td>

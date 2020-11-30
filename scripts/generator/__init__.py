@@ -103,23 +103,21 @@ class Generator:
         streak = 0
         last_date = None
         for activity in activities:
-            # Determine running streak.
-            if activity.type == "Run":
-                date = datetime.datetime.strptime(
-                    activity.start_date_local, "%Y-%m-%d %H:%M:%S"
-                ).date()
-                if last_date is None:
-                    streak = 1
-                elif date == last_date:
-                    pass
-                elif date == last_date + datetime.timedelta(days=1):
-                    streak += 1
-                else:
-                    assert date > last_date
-                    streak = 1
-                activity.streak = streak
-                last_date = date
-                activity_list.append(activity.to_dict())
+            date = datetime.datetime.strptime(
+                activity.start_date_local, "%Y-%m-%d %H:%M:%S"
+            ).date()
+            if last_date is None:
+                streak = 1
+            elif date == last_date:
+                pass
+            elif date == last_date + datetime.timedelta(days=1):
+                streak += 1
+            else:
+                assert date > last_date
+                streak = 1
+            activity.streak = streak
+            last_date = date
+            activity_list.append(activity.to_dict())
 
         return activity_list
 
