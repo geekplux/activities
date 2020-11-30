@@ -1142,6 +1142,23 @@ const activities = [
     "average_heartrate": 89.8,
     "average_speed": 2.872,
     "streak": 1
+  },
+  {
+    "strava_id": 4410152544,
+    "athlete_id": 64654029,
+    "name": "Afternoon Run",
+    "distance": 6795.7,
+    "moving_time": "0:34:50",
+    "elapsed_time": "0:34:50",
+    "total_elevation_gain": 9.8,
+    "type": "Run",
+    "start_date": "2020-11-29 09:27:54+00:00",
+    "start_date_local": "2020-11-29 17:27:54",
+    "location_country": "\u77f3\u5858\u5480 Shek Tong Tsui, \u4e2d\u897f\u5340 Central and Western District, \u9999\u6e2f\u5cf6 Hong Kong Island, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "uh`gCe}rwTcAHMWEU]cC?UGk@S}@OyA[gBS}@Ck@Ie@KUIm@AW[kBKaANQIOQI?ULSSqAGSIi@UsB@YE{AAcD@U?SBi@BeBFeABqACWJgCAm@B{ADk@Nm@?UHo@HWBk@JUL_ALm@Ri@IQLk@PuABSCSLMHm@Re@Di@DQBi@FUJS@SbA{@LOHQh@YNQ^WTe@R_A`@WNOOS@YVBJUIUFWLQJf@Fs@k@BNu@G_AFSC[?WDQ@[h@wAZg@ROLSBUGg@?WGS?YKSI_AIUOMMS?WOOOSGU?o@lAeHCUISl@aAdA^RPJQUIR@LMSa@OQUs@_@c@Fm@Ag@|@qBBSNQKUTK@WGW?WTa@BYT{@LOPEDo@HQfBw@~@O]u@{@c@RId@MVA~Cy@p@gANOLSRk@^]PGNSj@eBVmAX_AJm@@WIUCU@WNk@EWTiBJuABiACU@Y^u@\\cAFUFq@DyAJeA?WJeALaA?o@AWUuAa@w@_@c@kAq@c@[MMWg@UISA{@YARQ@OI[_@Yg@Mk@CeA@U\\sABo@Ck@@ULMRCj@BRCTBOJS@QLETATONGREl@Oj@Cj@Bj@JPNj@`@PJLDVp@b@\\^LPPDhAn@^TJN^VJN`@z@P|@Hl@Gl@GVGl@G~@EPExAQnBIh@Wx@MRSb@Cf@?dAIPU`DDn@U`ABTHT@RU~@Ih@s@~BQ|@MLSDQHe@z@CTOFEVc@n@QJsBl@SD}@T}@XSJMNUf@[^LSFSg@nACROd@AVOLTA",
+    "average_heartrate": 179.9,
+    "average_speed": 3.252,
+    "streak": 2
   }
 ];
 
