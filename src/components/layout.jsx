@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+import Header from "./header.jsx";
 
 import "../styles/index.scss";
 
@@ -26,11 +27,12 @@ const Layout = ({ children }) => (
               name: "description",
               content: data.site.siteMetadata.description,
             },
-            { name: "keywords", content: "running" },
+            { name: "keywords", content: "activities | run | hike | swim | bike | ride" },
           ]}
         >
           <html lang="en" />
         </Helmet>
+        <Header siteTitle={data.site.siteMetadata.title} />
         <div className="pa3 pa5-l">{children}</div>
       </Fragment>
     )}

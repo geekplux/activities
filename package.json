@@ -1,8 +1,8 @@
 {
-  "name": "yihong.run",
-  "description": "Yi hong",
+  "name": "geekplux_activities",
+  "description": "GeekPlux's Activities",
   "version": "1.0.0",
-  "author": "Yi Hong <zouzou0208@gmail.com>",
+  "author": "GeekPlux <geekplux@gmail.com> (https://geekplux.com/)",
   "dependencies": {
     "@mapbox/mapbox-gl-language": "^0.10.1",
     "@mapbox/polyline": "^1.1.1",
@@ -66,7 +66,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yihong0618/running_page"
+    "url": "https://github.com/geekplux/activities"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

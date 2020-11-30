@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import MapboxLanguage from '@mapbox/mapbox-gl-language';
+// import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import ReactMapGL, { Source, Layer, Marker } from 'react-map-gl';
 
 import Layout from '../components/layout';
@@ -194,7 +194,7 @@ export default () => {
       <Layout>
         <div className="mb5">
           <div className="w-100">
-            <h1 className="f1 fw9 i">Running</h1>
+            <h1 className="f1 fw9 i">Activities</h1>
           </div>
           <YearsStat runs={activities} year={year} onClick={changeYear} />
           <div className="fl w-100 w-70-l">
