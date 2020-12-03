@@ -936,20 +936,6 @@ const activities = [
     "average_heartrate": 179.9,
     "average_speed": 3.252,
     "streak": 2
-  },
-  {
-    "run_id": 4422737180,
-    "name": "Evening Run",
-    "distance": 5128.9,
-    "moving_time": "0:25:33",
-    "type": "Run",
-    "start_date": "2020-12-02 10:34:58+00:00",
-    "start_date_local": "2020-12-02 18:34:58",
-    "location_country": "\u884c\u653f\u5927\u6a13 Admin Building, Instagram Pier, \u77f3\u5858\u5480 Shek Tong Tsui, \u4e2d\u897f\u5340 Central and Western District, \u9999\u6e2f\u5cf6 Hong Kong Island, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
-    "summary_polyline": "{i`gCo|rwTDPBl@Al@GP?~@[vAAl@G~@Kl@@z@GbAKO@iACQ@gAJk@J_ALg@Dk@FSAk@Dm@@aAEm@]]Qe@EW?m@Q{@AYIQOOCm@@UIi@Qk@Ei@GSGk@GUBSU_AAWIU?SCSIWIOGi@KW?YMgA@YEq@[sAGi@GUC_DBU@o@AoCDm@AeCFk@CY@_ABSASDQC]?UFq@ASDUCSFu@Ci@@SHWJk@@k@AUBUFUNMLSDQ@eAASRq@@SLOCk@Lo@@SRi@@SPi@BUPONm@Co@Hm@?SHQp@a@PMDS`@SLORMZWLOCSWFa@^KRQHk@p@g@p@[t@?RMp@MtAKl@HPIRMRAXSj@In@MR?f@QH@TSh@In@AXQ`AIR@ZNRPLFTBRER?XDTJP`@\\V@TDVC^_@Pg@Fe@Am@KUWCWIIOWDa@VKNONMVCRKNs@rC?TDTIl@AXCvA@f@Ej@A~@BXCj@CnB@TCdA?h@FzCFPCTHP`@zBAPSAQgASs@Gm@DWRLHNLxALf@?TE`AHP@TGPHP\\pBi@NRDR?HP@RJp@?VTj@?RJf@FPUDOHY@DRT@TCRDHPHd@@XFVBVFVBXT|AHNXfBNJNj@CRKNV`@BTIrBK|@@TATIl@Ar@AVMf@@rACTSD",
-    "average_heartrate": 181.1,
-    "average_speed": 3.346,
-    "streak": 1
   }
 ];
 
