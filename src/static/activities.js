@@ -953,7 +953,7 @@ const activities = [
   },
   {
     "run_id": 4433699679,
-    "name": "Morning Hike",
+    "name": "Sharp Peak-Tuen Tsui-Cheung Tsui",
     "distance": 24591.6,
     "moving_time": "6:38:06",
     "type": "Hike",
