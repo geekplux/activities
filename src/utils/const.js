@@ -23,3 +23,9 @@ const RUN_TITLES = {
 export {
   MAPBOX_TOKEN, MUNICIPALITY_CITIES_ARR, IS_CHINESE, INFO_MESSAGE, RUN_TITLES,
 };
+
+export const AVATAR = 'https://geekpluxblog.oss-cn-hongkong.aliyuncs.com/avatar.jpg?x-oss-process=style/zip';
+export const NAVS = [
+  { text: 'Blog', link: 'https://geekplux.com/' },
+  { text: 'About', link: 'https://geekplux.com/about' },
+];
