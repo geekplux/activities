@@ -992,6 +992,20 @@ const activities = [
     "average_heartrate": 178.6,
     "average_speed": 3.132,
     "streak": 1
+  },
+  {
+    "run_id": 4461143430,
+    "name": "MacLehose section 4-5",
+    "distance": 24798.4,
+    "moving_time": "5:45:37",
+    "type": "Hike",
+    "start_date": "2020-12-12 03:33:07+00:00",
+    "start_date_local": "2020-12-12 11:33:07",
+    "location_country": "\u6c34\u6d6a\u7aa9 Shui Long Wo, \u897f\u6c99\u8def Sai Sha Road, \u5927\u6d1e Tai Tung, \u5927\u57d4\u5340 Tai Po District, \u65b0\u754c New Territories, \u9999\u6e2f Hong Kong, China \u4e2d\u56fd",
+    "summary_polyline": "uawgCwsnxTIaGbBuGIc@J~@XB`CqB~CMMrErE`C_AnFvCtEc@fBqAzAWlCjF~A|HHrGtC`@`BnA`@KvAl@tDg@`@iD?eAnB}@\\wDoBWlBkBtC{AbFHpAlA|BDlAwDhEUhEwAx@aCqAsAVH`B`AZT`BgDzCuC[QZw@_@kCjAg@]GfAj@lC}B~BqAfC`A?c@r@h@hABnCcA`BWfJk@|@Fh@j@V?pDKdElAlEvFlArAqCjC}@bGrBrC_DdEuBxAvBtDpCwAv@bBt@|Ck@z@ZOnAZxBp@Jx@tB~@GbBjDtA^Vx@bBv@pA~ApBwC~@uFbAg@jAuB|Am@fKa@`Aa@`AiBvDpAc@bAjAt@`AnBX|ChCpJFlBbCxEzA^n@~@tBEfCuBlDm@pIxBlBpATAx@u@zDzCtBNrCnEzAO`@`@hAdFvBnDlCrAx@fAn@Un@Z?b@vApBzALb@nArBn@vC~ErD|Dn@jB`BlAhAlIpAlCfDlBGt@rAnBvAjGTfC[jJr@jGUlA`@x@Q~CxAt@jBc@fCSjA\\p@fAbBXfC|BjAUlAbAfGbAhDlDh@zBbAj@l@`BpAv@Pn@`Fb@^z@W`Cn@jAbAN]`BqHhC{A|AeG|BpHoCn@aBfJe@LbBlC|BmAx@o@`ChFbJlAbACz@l@zAqAlC?~Ae@ZAdDxAYx@g@\\m@d@\\|@L?[`@HL{@n@b@z@k@`BHn@iAhDk@p@u@@rEpBjM{BlHO|AjCrDj@bDz@`Bo@lCIxFRpAzAhCPzD{@~Bb@hDi@zBDzAoCdCc@jCLb@c@~@j@\\QVj@r@u@`AWnBLxH_@fDRbAkFbFGbAbCrAVnArB|@EtBxDtAgCnEDj@nADd@p@s@~Ad@lBqAh@MfBfA`@jC`GMl@t@Jf@xAUrEV~@c@bAw@\\?j@fBVbAhA~AGzDbDtEKxCbEIdBb@rNo@fBPvCc@zCa@pATfFx@`Ck@xAPRG|BvAtIpBf@Rx@eBhDy@`@?n@VHOt@uBfAs@lCn@pCbDE~CvDBzBsAfBd@vBdAx@D`Ay@h@F~@cALW~@uALEl@kArAwAQMrAr@nAhCk@y@|B@~@|Ax@l@hCiBVn@~BzAlAjBk@v@|@iA`A}BVgAt@AxA`@r@{@rAcCb@UlAlAjBs@MdBtClAVrCWbBjBtBAYlA{EKa@LPd@",
+    "average_heartrate": 133.2,
+    "average_speed": 1.196,
+    "streak": 1
   }
 ];
 
