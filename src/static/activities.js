@@ -1048,6 +1048,20 @@ const activities = [
     "average_heartrate": 143.7,
     "average_speed": 1.458,
     "streak": 1
+  },
+  {
+    "run_id": 4506363776,
+    "name": "Night Run",
+    "distance": 2065.4,
+    "moving_time": "0:10:17",
+    "type": "Run",
+    "start_date": "2020-12-22 13:16:51+00:00",
+    "start_date_local": "2020-12-22 21:16:51",
+    "location_country": "\u897f\u5340\u516c\u773e\u8ca8\u7269\u88dd\u5378\u5340 Western District Public Cargo Working Area, \u5e72\u8afe\u9053\u897f\u5929\u6a4b Connaught Road West flyover, \u77f3\u5858\u5480 Shek Tong Tsui, \u4e2d\u897f\u5340 Central and Western District, \u9999\u6e2f\u5cf6 Hong Kong Island, \u9999\u6e2f Hong Kong, 000000, \u4e2d\u56fd",
+    "summary_polyline": "mi`gC{zrwTG|@ETCXAl@GTMLK`DFn@CX?h@CTIPQKP{AHyAFk@^oBBQA}@PeAb@_@RAQERAPENKRATKd@IPDR?RF@RCV?VGbA?~@Kf@?TIj@?VDj@CPDp@FVTf@n@t@NRhAlAf@p@bBjBf@p@xA~AMNKQ{AuBiCyC{BcC[a@IQU}@Ei@HmBJ{AC_BJgBMOUBy@JoATQHOJINKl@",
+    "average_heartrate": 162.1,
+    "average_speed": 3.347,
+    "streak": 1
   }
 ];
 
