@@ -3,11 +3,21 @@ import { Group } from '@visx/group';
 import { BarGroup } from '@visx/shape';
 import { AxisBottom, AxisLeft } from '@visx/axis';
 import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
+import {
+  Legend,
+  LegendLinear,
+  LegendQuantile,
+  LegendOrdinal,
+  LegendSize,
+  LegendThreshold,
+  LegendItem,
+  LegendLabel,
+} from '@visx/legend';
 import useActivities from 'src/hooks/useActivities';
 import { MAIN_COLOR, yellow, blue } from 'src/utils/const';
 
-// export const background = '#612efb';
-const defaultMargin = { top: 50, right: 0, bottom: 40, left: 50 };
+const defaultMargin = { top: 30, right: 0, bottom: 40, left: 50 };
+const legendGlyphSize = 15;
 // accessors
 const getDate = (d) => d.date;
 
@@ -60,30 +70,50 @@ export default function GroupBar({ width, height, margin = defaultMargin }) {
   distanceScale.range([yMax, 0]);
 
   return (
-    <svg width={width} height={height}>
-      <rect
-        x={0}
-        y={0}
-        width={width}
-        height={height}
-        fill="transparent"
-        rx={14}
-      />
-      <Group top={margin.top} left={margin.left}>
-        <BarGroup
-          data={data}
-          keys={keys}
-          height={yMax}
-          x0={getDate}
-          x0Scale={dateScale}
-          x1Scale={cityScale}
-          yScale={distanceScale}
-          color={colorScale}
-        >
-          {(barGroups) =>
-            barGroups.map((barGroup) => {
-              console.log(barGroup);
-              return (
+    <>
+      <LegendOrdinal scale={colorScale}>
+        {(labels) => (
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            {labels.map((label, i) => (
+              <LegendItem key={`legend-quantile-${i}`} margin="0 5px">
+                <svg width={legendGlyphSize} height={legendGlyphSize}>
+                  <rect
+                    fill={label.value}
+                    width={legendGlyphSize}
+                    height={legendGlyphSize}
+                  />
+                </svg>
+                <LegendLabel align="left" margin="0 0 0 4px">
+                  {label.text}
+                </LegendLabel>
+              </LegendItem>
+            ))}
+          </div>
+        )}
+      </LegendOrdinal>
+
+      <svg width={width} height={height}>
+        <rect
+          x={0}
+          y={0}
+          width={width}
+          height={height}
+          fill="transparent"
+          rx={14}
+        />
+        <Group top={margin.top} left={margin.left}>
+          <BarGroup
+            data={data}
+            keys={keys}
+            height={yMax}
+            x0={getDate}
+            x0Scale={dateScale}
+            x1Scale={cityScale}
+            yScale={distanceScale}
+            color={colorScale}
+          >
+            {(barGroups) =>
+              barGroups.map((barGroup) => (
                 <Group
                   key={`bar-group-${barGroup.index}-${barGroup.x0}`}
                   left={barGroup.x0}
@@ -100,38 +130,38 @@ export default function GroupBar({ width, height, margin = defaultMargin }) {
                     />
                   ))}
                 </Group>
-              );
-            })
-          }
-        </BarGroup>
-      </Group>
-      <AxisLeft
-        left={margin.left}
-        top={margin.top}
-        stroke={MAIN_COLOR}
-        tickStroke="transparent"
-        scale={distanceScale}
-        tickFormat={(v) => `${v / 1000} km`}
-        tickLabelProps={(v) => ({
-          fill: MAIN_COLOR,
-          fontSize: 11,
-          verticalAnchor: 'middle',
-          textAnchor: 'end',
-        })}
-      />
-      <AxisBottom
-        top={yMax + margin.top}
-        left={margin.left}
-        scale={dateScale}
-        stroke={MAIN_COLOR}
-        tickStroke={MAIN_COLOR}
-        hideAxisLine
-        tickLabelProps={() => ({
-          fill: MAIN_COLOR,
-          fontSize: 11,
-          textAnchor: 'middle',
-        })}
-      />
-    </svg>
+              ))
+            }
+          </BarGroup>
+        </Group>
+        <AxisLeft
+          left={margin.left}
+          top={margin.top}
+          stroke={MAIN_COLOR}
+          tickStroke="transparent"
+          scale={distanceScale}
+          tickFormat={(v) => `${v / 1000} km`}
+          tickLabelProps={(v) => ({
+            fill: MAIN_COLOR,
+            fontSize: 11,
+            verticalAnchor: 'middle',
+            textAnchor: 'end',
+          })}
+        />
+        <AxisBottom
+          top={yMax + margin.top}
+          left={margin.left}
+          scale={dateScale}
+          stroke={MAIN_COLOR}
+          tickStroke={MAIN_COLOR}
+          hideAxisLine
+          tickLabelProps={() => ({
+            fill: MAIN_COLOR,
+            fontSize: 11,
+            textAnchor: 'middle',
+          })}
+        />
+      </svg>
+    </>
   );
 }

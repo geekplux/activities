@@ -181,7 +181,7 @@ export default () => {
             changeYear={changeYear}
             thisYear={thisYear}
           />
-          <ParentSize>
+          <ParentSize style={{ marginTop: '50px' }}>
             {({ width }) => <GroupBar width={width} height={400} />}
           </ParentSize>
           {year === 'Total' ? (
