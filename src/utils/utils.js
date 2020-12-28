@@ -77,14 +77,6 @@ const pathForRun = (run) => {
   }
 };
 
-const lighterYellow = 'rgba(255, 255, 0, 0.6)';
-const lighterBlue = 'rgba(51,201,235, 0.7)';
-const lighterGreen = 'rgba(224,237,94, 0.7)';
-const colors = {
-  'Run': lighterYellow,
-  'Ride': lighterBlue,
-  'Hike': lighterGreen,
-}
 const geoJsonForRuns = (runs) => ({
   type: 'FeatureCollection',
   features: runs.map((run) => {
@@ -95,9 +87,6 @@ const geoJsonForRuns = (runs) => ({
 
     return {
       type: 'Feature',
-      properties: {
-        color: colors[run.type]
-      },
       geometry: {
         type: 'LineString',
         coordinates: points,
@@ -109,7 +98,6 @@ const geoJsonForRuns = (runs) => ({
 const geoJsonForMap = () => chinaGeojson;
 
 const titleForRun = (run) => {
-  return run.name;
   const runDistance = run.distance / 1000;
   const runHour = +run.start_date_local.slice(11, 13);
   if (runDistance > 20 && runDistance < 40) {
@@ -163,11 +151,25 @@ const getBoundsForGeoData = (geoData) => {
   return { longitude, latitude, zoom };
 };
 
-const filterYearRuns = ((run, year) => run.start_date_local.slice(0, 4) === year);
-const filterAndSortRuns = (activities, year, sortFunc) => {
+const filterYearRuns = ((run, year) => {
+  if (run && run.start_date_local) {
+    return run.start_date_local.slice(0, 4) === year;
+  }
+  return false;
+});
+
+const filterCityRuns = ((run, city) => {
+  if (run && run.location_country) {
+    return run.location_country.includes(city);
+  }
+  return false;
+});
+const filterTitleRuns = ((run, title) => titleForRun(run) === title);
+
+const filterAndSortRuns = (activities, item, filterFunc, sortFunc) => {
   let s = activities;
-  if (year !== 'Total') {
-    s = activities.filter((run) => filterYearRuns(run, year));
+  if (item !== 'Total') {
+    s = activities.filter((run) => filterFunc(run, item));
   }
   return s.sort(sortFunc);
 };
@@ -176,5 +178,5 @@ const sortDateFunc = (a, b) => new Date(b.start_date_local.replace(' ', 'T')) - 
 const sortDateFuncReverse = (a, b) => sortDateFunc(b, a);
 
 export {
-  titleForShow, formatPace, scrollToMap, locationForRun, intComma, pathForRun, geoJsonForRuns, geoJsonForMap, titleForRun, filterYearRuns, filterAndSortRuns, sortDateFunc, sortDateFuncReverse, getBoundsForGeoData,
+  titleForShow, formatPace, scrollToMap, locationForRun, intComma, pathForRun, geoJsonForRuns, geoJsonForMap, titleForRun, filterYearRuns, filterCityRuns, filterTitleRuns, filterAndSortRuns, sortDateFunc, sortDateFuncReverse, getBoundsForGeoData,
 };

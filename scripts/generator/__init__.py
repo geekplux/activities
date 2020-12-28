@@ -82,11 +82,11 @@ class Generator:
 
         self.session.commit()
 
-    def sync_from_keep(self, keep_tracks):
-        if not keep_tracks:
+    def sync_from_app(self, app_tracks):
+        if not app_tracks:
             print("No tracks found.")
             return
-        for t in keep_tracks:
+        for t in app_tracks:
             created = update_or_create_activity(self.session, t)
             if created:
                 sys.stdout.write("+")
@@ -103,21 +103,23 @@ class Generator:
         streak = 0
         last_date = None
         for activity in activities:
-            date = datetime.datetime.strptime(
-                activity.start_date_local, "%Y-%m-%d %H:%M:%S"
-            ).date()
-            if last_date is None:
-                streak = 1
-            elif date == last_date:
-                pass
-            elif date == last_date + datetime.timedelta(days=1):
-                streak += 1
-            else:
-                assert date > last_date
-                streak = 1
-            activity.streak = streak
-            last_date = date
-            activity_list.append(activity.to_dict())
+            # Determine running streak.
+            if activity.type == "Run":
+                date = datetime.datetime.strptime(
+                    activity.start_date_local, "%Y-%m-%d %H:%M:%S"
+                ).date()
+                if last_date is None:
+                    streak = 1
+                elif date == last_date:
+                    pass
+                elif date == last_date + datetime.timedelta(days=1):
+                    streak += 1
+                else:
+                    assert date > last_date
+                    streak = 1
+                activity.streak = streak
+                last_date = date
+                activity_list.append(activity.to_dict())
 
         return activity_list
 

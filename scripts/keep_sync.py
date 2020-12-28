@@ -15,10 +15,7 @@ import requests
 from config import (
     GPX_FOLDER,
     JSON_FILE,
-    NIKE_CLIENT_ID,
-    OUTPUT_DIR,
     SQL_FILE,
-    TOKEN_REFRESH_URL,
 )
 from generator import Generator
 
@@ -94,21 +91,18 @@ def parse_raw_data_to_nametuple(run_data, old_gpx_ids, with_download_gpx=False):
         # string strart with `H4sIAAAAAAAA` --> decode and unzip
         run_points_data = decode_runmap_data(r.text)
         if with_download_gpx:
-            gpx_data = parse_points_to_gpx(run_points_data, start_time)
             if str(keep_id) not in old_gpx_ids:
+                gpx_data = parse_points_to_gpx(run_points_data, start_time)
                 download_keep_gpx(gpx_data, str(keep_id))
         run_points_data = [[p["latitude"], p["longitude"]] for p in run_points_data]
     heart_rate = None
     if run_data["heartRate"]:
         heart_rate = run_data["heartRate"].get("averageHeartRate", None)
+        # fix #66
+        if heart_rate and heart_rate < 0:
+            heart_rate = None
     polyline_str = polyline.encode(run_points_data) if run_points_data else ""
     start_latlng = start_point(*run_points_data[0]) if run_points_data else None
-    start_date = datetime.utcfromtimestamp(start_time / 1000)
-    tz_name = run_data.get("timezone", "")
-    start_date_local = adjust_time(start_date, tz_name)
-    end = datetime.utcfromtimestamp(run_data["endTime"] / 1000)
-    end_local = adjust_time(end, tz_name)
-    d = {
         "id": int(keep_id),
         "name": "run from keep",
         # future to support others workout now only for run
@@ -156,21 +150,6 @@ def get_all_keep_tracks(email, password, old_tracks_ids, with_download_gpx=False
     return tracks
 
 
-def run_keep_sync(email, password, with_download_gpx=False):
-    generator = Generator(SQL_FILE)
-    old_tracks_ids = generator.get_old_tracks_ids()
-    new_tracks = get_all_keep_tracks(email, password, old_tracks_ids, with_download_gpx)
-    generator.sync_from_keep(new_tracks)
-
-    activities_list = generator.load()
-    with open(JSON_FILE, "w") as f:
-        f.write("const activities = ")
-        json.dump(activities_list, f, indent=2)
-        f.write(";\n")
-        f.write("\n")
-        f.write("export {activities};\n")
-
-
 def parse_points_to_gpx(run_points_data, start_time):
     # future to support heart rate
     points_dict_list = []
@@ -212,9 +191,20 @@ def download_keep_gpx(gpx_data, keep_id):
         pass
 
 
+def run_keep_sync(email, password, with_download_gpx=False):
+    generator = Generator(SQL_FILE)
+    old_tracks_ids = generator.get_old_tracks_ids()
+    new_tracks = get_all_keep_tracks(email, password, old_tracks_ids, with_download_gpx)
+    generator.sync_from_app(new_tracks)
+
+    activities_list = generator.load()
+    with open(JSON_FILE, "w") as f:
+        json.dump(activities_list, f)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("email", help="keep login email")
+    parser.add_argument("phone_number", help="keep login phone number")
     parser.add_argument("password", help="keep login password")
     parser.add_argument(
         "--with-gpx",
@@ -223,4 +213,4 @@ if __name__ == "__main__":
         help="get all keep data to gpx and download",
     )
     options = parser.parse_args()
-    run_keep_sync(options.email, options.password, options.with_gpx)
+    run_keep_sync(options.phone_number, options.password, options.with_gpx)
