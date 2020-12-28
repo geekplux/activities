@@ -53,3 +53,6 @@ export const NAVS = [
 const nike = 'rgb(224,237,94)';
 export const MAIN_COLOR = nike;
 export const PROVINCE_FILL_COLOR = '#47b8e0';
+export const lighterYellow = 'rgba(255, 255, 0, 0.6)';
+export const lighterBlue = 'rgba(51,201,235, 0.7)';
+export const lighterGreen = 'rgba(224,237,94, 0.7)';

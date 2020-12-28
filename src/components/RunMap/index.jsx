@@ -81,7 +81,7 @@ const RunMap = ({
           id="runs2"
           type="line"
           paint={{
-            'line-color': MAIN_COLOR,
+            'line-color': ['get', 'color'],
             'line-width': isBigMap ? 1 : 2,
           }}
           layout={{

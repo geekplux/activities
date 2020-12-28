@@ -1,7 +1,7 @@
 import * as mapboxPolyline from '@mapbox/polyline';
 import { WebMercatorViewport } from 'react-map-gl';
 import { chinaGeojson } from '../static/run_countries';
-import { MUNICIPALITY_CITIES_ARR, RUN_TITLES } from './const';
+import { MUNICIPALITY_CITIES_ARR, RUN_TITLES, lighterYellow, lighterBlue, lighterGreen } from './const';
 
 const titleForShow = (run) => {
   const date = run.start_date_local.slice(0, 11);
@@ -77,6 +77,12 @@ const pathForRun = (run) => {
   }
 };
 
+const colors = {
+  Run: lighterYellow,
+  Ride: lighterBlue,
+  Hike: lighterGreen,
+};
+
 const geoJsonForRuns = (runs) => ({
   type: 'FeatureCollection',
   features: runs.map((run) => {
@@ -87,6 +93,9 @@ const geoJsonForRuns = (runs) => ({
 
     return {
       type: 'Feature',
+      properties: {
+        color: colors[run.type],
+      },
       geometry: {
         type: 'LineString',
         coordinates: points,

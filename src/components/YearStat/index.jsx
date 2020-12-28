@@ -27,7 +27,7 @@ const YearStat = ({ year, onClick }) => {
   let heartRateNullCount = 0;
   runs.forEach((run) => {
     sumDistance += run.distance || 0;
-    if (run.average_speed) {
+    if (run.average_speed && run.type === 'Run') {
       pace += run.average_speed;
     } else {
       paceNullCount++;
@@ -55,7 +55,10 @@ const YearStat = ({ year, onClick }) => {
     >
       <section>
         <Stat value={year} description=" Journey" />
-        <Stat value={runs.length} description=" Runs" />
+        <Stat value={runs.filter(r => r.type == 'Run').length} description=" Runs" />
+        <Stat value={runs.filter(r => r.type == 'Hike').length} description=" Hikes" />
+        <Stat value={runs.filter(r => r.type == 'Ride').length} description=" Rides" />
+        <Stat value={runs.filter(r => r.type == 'Swim').length} description=" Swims" />
         <Stat value={sumDistance} description=" KM" />
         <Stat value={avgPace} description=" Avg Pace" />
         <Stat
