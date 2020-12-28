@@ -107,6 +107,7 @@ const geoJsonForRuns = (runs) => ({
 const geoJsonForMap = () => chinaGeojson;
 
 const titleForRun = (run) => {
+  return run.name;
   const runDistance = run.distance / 1000;
   const runHour = +run.start_date_local.slice(11, 13);
   if (runDistance > 20 && runDistance < 40) {
