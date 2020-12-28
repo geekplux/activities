@@ -1,14 +1,13 @@
 import React from 'react';
 import { Group } from '@visx/group';
 import { BarGroup } from '@visx/shape';
-import { AxisBottom } from '@visx/axis';
+import { AxisBottom, AxisLeft } from '@visx/axis';
 import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
-import { timeParse, timeFormat } from 'd3-time-format';
 import useActivities from 'src/hooks/useActivities';
 import { MAIN_COLOR, yellow, blue } from 'src/utils/const';
 
 // export const background = '#612efb';
-const defaultMargin = { top: 40, right: 0, bottom: 40, left: 0 };
+const defaultMargin = { top: 50, right: 0, bottom: 40, left: 50 };
 // accessors
 const getDate = (d) => d.date;
 
@@ -106,8 +105,23 @@ export default function GroupBar({ width, height, margin = defaultMargin }) {
           }
         </BarGroup>
       </Group>
+      <AxisLeft
+        left={margin.left}
+        top={margin.top}
+        stroke={MAIN_COLOR}
+        tickStroke="transparent"
+        scale={distanceScale}
+        tickFormat={(v) => `${v / 1000} km`}
+        tickLabelProps={(v) => ({
+          fill: MAIN_COLOR,
+          fontSize: 11,
+          verticalAnchor: 'middle',
+          textAnchor: 'end',
+        })}
+      />
       <AxisBottom
         top={yMax + margin.top}
+        left={margin.left}
         scale={dateScale}
         stroke={MAIN_COLOR}
         tickStroke={MAIN_COLOR}
