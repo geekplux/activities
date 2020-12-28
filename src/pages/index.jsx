@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import Layout from 'src/components/Layout';
 import SVGStat from 'src/components/SVGStat';
 import YearsStat from 'src/components/YearsStat';
 import LocationStat from 'src/components/LocationStat';
 import RunTable from 'src/components/RunTable';
 import RunMap from 'src/components/RunMap';
+import GroupBar from 'src/components/GroupBar';
 import useActivities from 'src/hooks/useActivities';
 import {
   titleForShow,
@@ -179,6 +181,9 @@ export default () => {
             changeYear={changeYear}
             thisYear={thisYear}
           />
+          <ParentSize>
+            {({ width }) => <GroupBar width={width} height={400} />}
+          </ParentSize>
           {year === 'Total' ? (
             <SVGStat />
           ) : (
