@@ -3,33 +3,27 @@ import { Group } from '@visx/group';
 import { BarGroup } from '@visx/shape';
 import { AxisBottom, AxisLeft } from '@visx/axis';
 import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
-import {
-  Legend,
-  LegendLinear,
-  LegendQuantile,
-  LegendOrdinal,
-  LegendSize,
-  LegendThreshold,
-  LegendItem,
-  LegendLabel,
-} from '@visx/legend';
-import useActivities from 'src/hooks/useActivities';
+import { LegendOrdinal, LegendItem, LegendLabel } from '@visx/legend';
 import { MAIN_COLOR, yellow, blue } from 'src/utils/const';
 
 const defaultMargin = { top: 30, right: 0, bottom: 40, left: 50 };
-const legendGlyphSize = 15;
+const legendGlyphSize = 12;
 // accessors
 const getDate = (d) => d.date;
 
-export default function GroupBar({ width, height, margin = defaultMargin }) {
-  const { activities } = useActivities();
+export default function GroupBar({
+  runs: activities,
+  width,
+  height,
+  margin = defaultMargin,
+}) {
   if (width < 10) return null;
   if (!activities) return null;
   let data = {};
   const keys = ['Run', 'Hike', 'Ride'];
   let maxDistance = 0;
   activities.map((a) => {
-    const month = a.start_date_local.slice(0, 7);
+    const month = a.start_date_local.slice(5, 7);
     if (!data[month]) {
       data[month] = {
         date: month,
@@ -41,7 +35,7 @@ export default function GroupBar({ width, height, margin = defaultMargin }) {
     data[month][a.type] += a.distance;
     if (maxDistance < data[month][a.type]) maxDistance = data[month][a.type];
   });
-  data = Object.values(data);
+  data = Object.values(data).sort((a, b) => a.date - b.date);
 
   // scales
   const dateScale = scaleBand({

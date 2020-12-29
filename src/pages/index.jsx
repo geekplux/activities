@@ -182,7 +182,7 @@ export default () => {
             thisYear={thisYear}
           />
           <ParentSize style={{ marginTop: '50px' }}>
-            {({ width }) => <GroupBar width={width} height={400} />}
+            {({ width }) => <GroupBar width={width} height={400} runs={runs} />}
           </ParentSize>
           {year === 'Total' ? (
             <SVGStat />
