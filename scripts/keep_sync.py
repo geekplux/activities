@@ -103,6 +103,12 @@ def parse_raw_data_to_nametuple(run_data, old_gpx_ids, with_download_gpx=False):
             heart_rate = None
     polyline_str = polyline.encode(run_points_data) if run_points_data else ""
     start_latlng = start_point(*run_points_data[0]) if run_points_data else None
+    start_date = datetime.utcfromtimestamp(start_time / 1000)
+    tz_name = run_data.get("timezone", "")
+    start_date_local = adjust_time(start_date, tz_name)
+    end = datetime.utcfromtimestamp(run_data["endTime"] / 1000)
+    end_local = adjust_time(end, tz_name)
+    d = {
         "id": int(keep_id),
         "name": "run from keep",
         # future to support others workout now only for run

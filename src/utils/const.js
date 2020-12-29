@@ -15,7 +15,7 @@ const IS_CHINESE = false;
 const CHINESE_INFO_MESSAGE = (yearLength, year) =>
   `我用 App 记录自己跑步 ${yearLength} 年了，下面列表展示的是 ${year} 的数据`;
 const ENGLISH_INFO_MESSAGE = (yearLength, year) =>
-  `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
+  `Record all my activities, fitness makes me healthy, exercise brings happiness, and hiking makes me feel refreshed. Tracking myself and always exploring.`;
 
 const INFO_MESSAGE = IS_CHINESE ? CHINESE_INFO_MESSAGE : ENGLISH_INFO_MESSAGE;
 const FULL_MARATHON_RUN_TITLE = IS_CHINESE ? '全程马拉松' : 'Full Marathon';
