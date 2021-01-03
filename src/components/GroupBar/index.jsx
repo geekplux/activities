@@ -5,6 +5,7 @@ import { AxisBottom, AxisLeft } from '@visx/axis';
 import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
 import { LegendOrdinal, LegendItem, LegendLabel } from '@visx/legend';
 import { MAIN_COLOR, yellow, blue } from 'src/utils/const';
+import useActivities from 'src/hooks/useActivities';
 
 const defaultMargin = { top: 30, right: 0, bottom: 40, left: 50 };
 const legendGlyphSize = 12;
@@ -12,18 +13,19 @@ const legendGlyphSize = 12;
 const getDate = (d) => d.date;
 
 export default function GroupBar({
-  runs: activities,
+  // runs: activities,
   width,
   height,
   margin = defaultMargin,
 }) {
+  const { activities } = useActivities();
   if (width < 10) return null;
   if (!activities) return null;
   let data = {};
   const keys = ['Run', 'Hike', 'Ride'];
   let maxDistance = 0;
   activities.map((a) => {
-    const month = a.start_date_local.slice(5, 7);
+    const month = a.start_date_local.slice(2, 7);
     if (!data[month]) {
       data[month] = {
         date: month,
@@ -151,7 +153,7 @@ export default function GroupBar({
           hideAxisLine
           tickLabelProps={() => ({
             fill: MAIN_COLOR,
-            fontSize: 11,
+            fontSize: 10,
             textAnchor: 'middle',
           })}
         />
