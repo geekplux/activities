@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import Layout from 'src/components/Layout';
-import SVGStat from 'src/components/SVGStat';
+// import SVGStat from 'src/components/SVGStat';
 import YearsStat from 'src/components/YearsStat';
 import LocationStat from 'src/components/LocationStat';
 import RunTable from 'src/components/RunTable';
@@ -23,7 +23,7 @@ import { IS_CHINESE } from 'src/utils/const';
 
 export default () => {
   const { activities, thisYear } = useActivities();
-  const [year, setYear] = useState(thisYear);
+  const [year, setYear] = useState('Total');
   const [runIndex, setRunIndex] = useState(-1);
   const [runs, setActivity] = useState(
     filterAndSortRuns(activities, year, filterYearRuns, sortDateFunc)
@@ -184,18 +184,14 @@ export default () => {
           <ParentSize style={{ marginTop: '50px' }}>
             {({ width }) => <GroupBar width={width} height={400} runs={runs} />}
           </ParentSize>
-          {year === 'Total' ? (
-            <SVGStat />
-          ) : (
-            <RunTable
-              runs={runs}
-              year={year}
-              locateActivity={locateActivity}
-              setActivity={setActivity}
-              runIndex={runIndex}
-              setRunIndex={setRunIndex}
-            />
-          )}
+          <RunTable
+            runs={runs}
+            year={year}
+            locateActivity={locateActivity}
+            setActivity={setActivity}
+            runIndex={runIndex}
+            setRunIndex={setRunIndex}
+          />
         </div>
       </div>
     </Layout>
