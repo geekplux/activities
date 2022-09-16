@@ -1,6 +1,6 @@
 httpx==0.23.0
 gpxpy==1.4.2
-stravalib==0.10.2
+stravalib==0.10.4
 appdirs>=1.4.0
 svgwrite>=1.1.9
 colour
