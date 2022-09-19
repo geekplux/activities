@@ -17,3 +17,6 @@ _site/
 /.vscode
 
 config.yaml
+
+venv
+__pycache__
